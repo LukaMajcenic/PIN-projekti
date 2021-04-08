@@ -1,0 +1,30 @@
+:focus 
+{
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+	border-color: transparent !important;
+}
+
+
+body
+{
+    background-repeat: no-repeat;
+    background-color: #fcfcfc;
+}
+
+.card-body
+{
+    background-color: white;
+    width: 30%;
+    margin: 50px auto;
+}
+
+#InputMail
+{
+    width: 40%;
+}
+
+#ButtonRegistracija
+{
+    float: right;
+    border-color: #E6E6E6;
+}

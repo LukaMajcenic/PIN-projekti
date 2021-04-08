@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Početna</title>
+	<meta charset="UTF-8">
+  <script src="assets/plugins/jquery/jquery-3.2.1.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet'>
+  <link rel="stylesheet" href="assets/plugins/bootstrap-5.0.0-beta1-dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/menu.css">
+  <script src="https://kit.fontawesome.com/2ed5dcf434.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Date-Picker Plugin -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    
+
+</head>
+<body style="background-image: url('bg.png');">
+
+  <button type="button" class="btn" id="OtvoriMenu">
+    <span id="TekstOtvoriMeni">Otvori meni</span><i class="fas fa-bars" style="color: white;"></i>
+  </button>
+  <div id="Menu">  
+
+    <button type="button" class="btn" id="testBtn"> 
+      <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="UserPhoto">
+      Ime Prezime</button>  
+    <button type="button" class="btn" id="ZatvoriMenu">
+      <i class="fas fa-bars" style="color: #444444;"></i>
+    </button>
+    <br>
+    <br>
+    <br>
+
+    <hr class="solid">
+
+    <button type="button" class="btn btn-success" id="ButtonDodajProjektModal" data-bs-toggle="modal" data-bs-target="#DodajProjektModal">
+      Dodaj projekt   <i class="fas fa-plus-circle"></i></a></button>
+    
+    <hr class="solid">
+    
+    <input type="text" class="live-search-box form-control" placeholder="Pretraži"/>
+    <div class="btn-group" id="MenuButtonGroup" role="group" aria-label="Basic checkbox toggle button group">
+      <input type="checkbox" class="btn-check" id="Pripremi" autocomplete="off" checked>
+      <label class="btn btn-outline-light" for="Pripremi">U pripremi</label>
+    
+      <input type="checkbox" class="btn-check" id="Tijeku" autocomplete="off" checked>
+      <label class="btn btn-outline-light" for="Tijeku">U tijeku</label>
+    
+      <input type="checkbox" class="btn-check" id="Zavrsen" autocomplete="off" checked>
+      <label class="btn btn-outline-light" for="Zavrsen">Završen</label>
+    </div>
+
+    <button class="btn ButtonDrugaStranica" id="ButtonHome">
+      <i class="fas fa-home"></i>POČETNA
+    </button>
+    <button class="btn ButtonDrugaStranica" id="ButtonStatistika">
+      <i class="far fa-chart-bar"></i>STATISTIKA
+    </button>
+    <button class="btn ButtonDrugaStranica" id="ButtonProfil">
+      <i class="fas fa-user-cog"></i>PROFIL
+    </button>
+    <button class="btn ButtonDrugaStranica" id="ButtonOdjava">
+      <i class="fas fa-sign-out-alt"></i></i>ODJAVA
+    </button>
+
+  </div>
+
+	<div class="container-fluid" id="MainPageContainer" style="width: 80%; float: right;">
+		<div class="row">
+ 
+      
+			<div class="col-lg" id="drustveni" style="border-right: 3px solid #E6E6E6; margin-top: 40px;">
+        <h5 style="text-align: center;">DRUŠTVENI</h5>   
+      </div>
+
+			<div class="col-lg" id="infrastrukturni" style="margin-top: 40px;">
+        <h5 style="text-align: center;">INFRASTRUKTURNI</h5>  
+				<div class="m-4 card text-left" id="MainCard">					
+  					<div class="card-header" style="background-color: #FFEE44">
+  					</div>
+  					<div class="card-body" style="box-shadow: 0px -4px 8px rgba(0,0,0,0.3)">
+  						<a class="stretched-link text-decoration-none" href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  							<h5 class="card-text">Naziv</h5>
+  							<p class="card-subtitle text-muted">Društveni</p>
+  							<hr class="solid">
+  							<i class="fas fa-user-tie"></i>
+  							<span>Marko Markić</span><br>
+  							<i class="fas fa-dollar-sign" style="margin: 0px 3px 0px 2px"></i>
+  							<span>Vrijednost</span><br>
+  							<i class="fas fa-hourglass-half" style="margin: 0px 1px 0px 1px"></i>
+  							<span>U tijeku</span>
+    					</a>
+  					</div>
+  				</div>
+			</div>
+
+			<div class="col-lg" id="kulturni" style="border-left: 3px solid #E6E6E6; margin-top: 40px;">
+        <h5 style="text-align: center;">KULTURNI</h5>     
+      </div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button id="HeaderButton" type="button" class="btn btn-sm">
+          <i style="color: #444444;" class="fas fa-trash-alt"></i>
+          <b><span style="color: #444444">Obriši</span></b>
+        </button>
+      </div>
+      <div class="modal-body" style="box-shadow: 0px -4px 20px rgba(0,0,0,0.3)">
+        
+        <h1 id="ModalNaslov" style="word-wrap:break-word;">Naslov</h1>
+        <h5 class="text-muted" id="ModalTip">Društveni</h5>
+        <button type="button" class="btn btn-sm EditButton" data-bs-toggle="modal" data-bs-target="#EditSvojstvaModal" id="EditButtonNaslov">
+          <i class="fas fa-edit iEditButton"></i>
+        </button>
+        <hr class="solid">
+
+        <!-- Opis -->
+        <button type="button" class="btn btn-sm ReadOnlyButton">
+          <i class="fas fa-info-circle"></i>
+          <span style="color: white">OPIS</span>
+        </button>
+        <button type="button" class="btn btn-sm EditButton" id="EditButtonOpis" data-bs-toggle="modal" data-bs-target="#EditSvojstvaModal">
+          <i class="fas fa-edit iEditButton"></i>
+        </button>
+        <br>
+        <div class="card" style="background-color: #F9F9F9">
+          <div class="card-body" id="ModalOpis">
+            Neki opis koji ne mogu smislit jer...
+          </div>
+        </div><br>
+
+        <!-- Voditelj -->
+        <button type="button" class="btn btn-sm ReadOnlyButton">
+          <i class="fas fa-user-tie"></i>
+          <span style="color: white">VODITELJ</span>
+        </button>
+        <button type="button" class="btn btn-sm EditButton" id="EditButtonVoditelj" data-bs-toggle="modal" data-bs-target="#EditSvojstvaModal">
+          <i class="fas fa-edit iEditButton"></i>
+        </button>
+        <br>
+        <div class="card" style="background-color: #F9F9F9">
+          <div class="card-body">
+            <span id="ModalVoditeljIme">Ime</span> <span id="ModalVoditeljPrezime">Prezime</span>
+          </div>
+        </div><br>
+
+        <!-- Vrijednost -->
+        <button type="button" class="btn btn-sm ReadOnlyButton">
+          <i class="fas fa-money-bill-wave"></i>
+          <span style="color: white">VRIJEDNOST</span>
+        </button>
+        <button type="button" class="btn btn-sm EditButton" id="EditButtonVrijednost" data-bs-toggle="modal" data-bs-target="#EditSvojstvaModal">
+          <i class="fas fa-edit iEditButton"></i>
+        </button>
+        <br>
+        <div class="card" style="background-color: #F9F9F9">
+          <div class="card-body" id="ModalVrijednost">
+            3200 kn
+          </div>
+        </div><br>
+
+        <!-- Status -->
+        <button type="button" class="btn btn-sm ReadOnlyButton">
+          <i id="ModalClock"></i>
+          <span style="color: white">STATUS</span>
+        </button>
+        <button type="button" class="btn btn-sm EditButton" id="EditButtonStatus" data-bs-toggle="modal" data-bs-target="#EditSvojstvaModal">
+          <i class="fas fa-edit iEditButton"></i>
+        </button>
+        <br>
+        <div class="card" style="background-color: #F9F9F9">
+          <div class="card-body" id="ModalStatus">
+            U pripremi
+
+          </div>
+        </div><br>
+
+        <!-- Aktivnosti -->
+        <button type="button" class="btn btn-sm ReadOnlyButton">
+          <i class="fas fa-tasks"></i>
+          <span style="color: white">AKTIVNOSTI</span>
+        </button>
+        <button type="button" class="btn btn-sm EditButton" id="AddButtonAktivnosti" data-bs-toggle="modal" data-bs-target="#DodajAktivnostModal">
+          <i class="fas fa-plus-circle iEditButton"></i>
+        </button>
+        <br>
+        <div class="card" style="background-color: #F9F9F9">
+          <div class="card-body" id="ModalBrojAktivnosti">
+            9
+          </div>
+        </div><br>
+
+        <!-- Accordion aktivnosti -->
+        <div id="AktivnostiAccordion" class="container-fluid">
+          <div class="row" style="margin-top: 3px;">
+            <div class="col-lg-1 px-0">
+              <button id="AktivnostButton" type="button" class="btn btn-sm">
+                <i id="IconAktivnostStatus" style="color: #FFEE66;" class="fas fa-hourglass-start"></i>
+              </button>
+              <button id="AktivnostButtonDel" type="button" class="btn btn-sm">
+                <i style="color: #444444;" class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+
+            <div class="col-lg-11 px-0">
+              <div class="accordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">                    
+                    <button style="height: 100%;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">                
+                      Aktivnost 1
+                    </button>
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-lg-12 px-0">
+              <div id="collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 92%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+                      <button type="button" class="btn btn-sm" style="background-color: transparent">
+                        <i class=""></i>
+                        <span style="color: #444444"><b>OPIS</b></span>
+                      </button>
+                    </div>
+                  </div><br>
+
+                  <!-- Aktivnost opis -->
+                  <button type="button" class="btn btn-sm" style="background-color: #444444">
+                    <i class="fas fa-info-circle"></i>
+                    <span style="color: white">OPIS</span>
+                  </button>
+                  <button type="button" class="btn btn-sm EditButtonAktivnost" data-bs-toggle="modal" data-bs-target="#EditAktivnostiModal">
+                    <i class="fas fa-edit iEditButton"></i>
+                  </button>
+                  <br>
+                  <div class="card" style="background-color: #F9F9F9">
+                    <div id="b" class="card-body">
+                      Neki opis koji ne mogu smislit jer...
+                    </div>
+                  </div><br>
+
+                  <!-- Aktivnost vrijeme kreiranja -->
+                  <button type="button" class="btn btn-sm" style="background-color: #444444">
+                    <i class="far fa-calendar-alt"></i>
+                    <span style="color: white">VRIJEME KREIRANJA</span>
+                  </button>
+                  <button type="button" class="btn btn-sm" ddata-bs-toggle="modal" data-bs-target="#EditAktivnostiModal">
+                    <i class="fas fa-edit iEditButton"></i>
+                  </button>
+                  <br>
+                  <div class="card" style="background-color: #F9F9F9">
+                    <div class="card-body">
+                      Neki opis koji ne mogu smislit jer...
+                    </div>
+                  </div><br>
+
+                  <!-- Aktivnost rok -->
+                  <button type="button" class="btn btn-sm" style="background-color: #444444">
+                    <i class="far fa-clock"></i>
+                    <span style="color: white">ROK</span>
+                  </button>
+                  <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#EditAktivnostiModal">
+                    <i class="fas fa-edit iEditButton"></i>
+                  </button>
+                  <br>
+                  <div class="card" style="background-color: #F9F9F9">
+                    <div class="card-body">
+                      <span>99/99/9999</span> <span>(1 dan)</span>
+                    </div>
+                  </div><br>
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+  </div>
+
+  <div class="modal fade" id="EditSvojstvaModal" tabindex="-1" aria-labelledby="EditSvojstvaModalLabel" aria-hidden="true" style="margin-top: 150px !important;">
+    <div class="modal-dialog">
+      <div class="modal-content TopModal">
+        <div class="modal-body" id="IdGumba">
+
+          <!-- Edit naslov -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">NASLOV</span>
+            <textarea class="form-control" aria-label="With textarea" rows="1"></textarea>
+          </div>
+
+          <!-- Edit tip -->
+          <div class="input-group mb-3">
+            <label class="input-group-text">TIP</label>
+            <select class="form-select">
+              <option selected value="Društveni">Društveni</option>
+              <option value="Infrastrukturni">Infrastrukturni</option>
+              <option value="Kulturni">Kulturni</option>
+            </select>
+          </div>
+
+          <!-- Edit opis -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">OPIS</span>
+            <textarea class="form-control" aria-label="With textarea" rows="1"></textarea>
+          </div>
+
+          <!-- Edit voditelj -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">IME I PREZIME</span>
+            <input type="text" class="form-control">
+            <input type="text" class="form-control">
+          </div>
+
+          <!-- Edit vrijednost -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">VRIJEDNOST</span>
+            <input type="text" class="form-control" style="width: 60%">
+            <select class="form-select w-auto" id="EditVrijednostValuta">
+              <option selected value="$">$</option>
+              <option value="€">€</option>
+              <option value="Kn">Kn</option>
+            </select>
+          </div>
+          
+          <!-- Edit status -->
+          <div class="input-group mb-3">
+            <label class="input-group-text">STATUS</label>
+            <select class="form-select">
+              <option selected value="U pripremi">U pripremi</option>
+              <option value="U tijeku">U tijeku</option>
+              <option value="Završen">Završen</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn " data-bs-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="EditAktivnostiModal" tabindex="-1" aria-labelledby="EditAktivnostiModalLabel" aria-hidden="true" style="margin-top: 150px !important;">
+    <div class="modal-dialog">
+      <div class="modal-content TopModal">
+        <div class="modal-body" id="IdAktivnosti">
+
+          <!-- Edit opis -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">OPIS</span>
+            <textarea class="form-control" aria-label="With textarea" rows="1"></textarea>
+          </div>
+
+          <div class="input-group date">
+            <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+          </div>
+
+          <button type="button" class="btn " data-bs-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="DodajAktivnostModal" tabindex="-1" aria-labelledby="DodajAktivnostiModalLabel" aria-hidden="true" style="margin-top: 150px !important;">
+    <div class="modal-dialog">
+      <div class="modal-content TopModal">
+        <div class="modal-body" id="IdAktivnosti">
+
+          <h4>Dodaj aktivnost</h4>
+
+           <!-- Dodaj naslov -->
+           <div class="input-group mb-3">
+            <span class="input-group-text">NAZIV</span>
+            <textarea class="form-control" id="DodajAktivnostNaslov" aria-label="With textarea" rows="1"></textarea>
+          </div>
+
+          <!-- Dodaj opis -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">OPIS</span>
+            <textarea class="form-control" id="DodajAktivnostOpis" aria-label="With textarea" rows="1"></textarea>
+          </div>
+
+           <!-- Dodaj datum kreiranja -->
+          <div class="input-group date mb-3" style="width: 90%;">
+            <span class="input-group-text">DATUM KREIRANJA</span> 
+            <input class="form-control" id="dateAddVK" data-date-format="dd/mm/yyyy" name="date" type="text" value=""/>
+            <div class="input-group-addon textarea-addon" data-date-format="dd/mm/yyyy">
+              <span><i class="far fa-calendar-alt iEditButton"></i></span>
+            </div>
+          </div>
+          <button class="btn btn-success" type="button" id="DatumPotvrdi">
+            <i class="far fa-calendar-check"></i>
+          </button>
+          
+         
+          <!-- Dodaj datum rok -->
+          <div class="input-group date mb-3" id="NemamIdejeDatum">
+            <span class="input-group-text">DATUM ROK</span> 
+            <input class="form-control" id="dateAdd" data-date-format="dd/mm/yyyy" name="date" type="text" value=""/>
+            <div class="input-group-addon textarea-addon" data-date-format="dd/mm/yyyy">
+              <span><i class="far fa-calendar-alt iEditButton"></i></span>
+            </div>
+            </div>
+      
+            <div class="input-group mb-3">
+              <span class="input-group-text">ROK</span> 
+              <input type="number" class="form-control" id="rokAdd" min="1" value="1" style="width: 40%">
+              <input type="text" class="form-control" id="rokStringAdd" value="dan/a" readonly>
+                <button type="button" class="btn btn-sm EditButtonAktivnost" id="Dodaj10dana2">
+                          <b class="iEditButton">+10</b>
+              </button>
+              <button type="button" class="btn btn-sm EditButtonAktivnost" id="Dodaj30dana2">
+                          <b class="iEditButton">+30</b>
+              </button>
+            </div>
+
+            <!-- Dodaj status -->
+            <div class="input-group mb-3">
+              <label class="input-group-text">STATUS</label>
+              <select class="form-select" id="DodajAktivnostStatus">
+                <option selected value="U tijeku">U tijeku</option>
+                <option value="Završen">Završen</option>
+              </select>
+              </div>
+
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Odustani</button>
+          <button type="button" class="btn btn-success" id="ButtonDodajAktivnost">Dodaj</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="DodajProjektModal" tabindex="-1" aria-labelledby="DodajProjektModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body" id="IdAktivnosti">
+
+          <h4>Dodaj projekt</h4>
+           <!-- Dodaj naslov -->
+           <div class="input-group mb-3">
+            <span class="input-group-text">NAZIV</span>
+            <textarea class="form-control" id="DodajProjektNaslov" aria-label="With textarea" rows="1"></textarea>
+          </div>
+
+          <!-- Dodaj tip -->
+          <div class="input-group mb-3">
+            <label class="input-group-text">TIP</label>
+            <select class="form-select" id="DodajProjektTip">
+              <option selected value="Društveni">Društveni</option>
+              <option value="Infrastrukturni">Infrastrukturni</option>
+              <option value="Kulturni">Kulturni</option>
+            </select>
+          </div>
+
+          <!-- Dodaj opis -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">OPIS</span>
+            <textarea class="form-control" id="DodajProjektOpis" aria-label="With textarea" rows="1"></textarea>
+          </div>
+
+          <!-- Dodaj voditelja -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">IME I PREZIME</span>
+            <input type="text" class="form-control" id="DodajProjektVoditeljIme">
+            <input type="text" class="form-control" id="DodajProjektVoditeljPrezime">
+          </div>
+
+          <!-- Dodaj vrijednost -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">VRIJEDNOST</span>
+            <input type="number" class="form-control" id="DodajProjektVrijednost" style="width: 60%" value="1">
+            <select class="form-select w-auto" id="DodajProjektVrijednostValuta">
+              <option selected value="$">$</option>
+              <option value="€">€</option>
+              <option value="kn">kn</option>
+            </select>
+          </div>
+
+          <!-- Dodaj status -->
+          <div class="input-group mb-3">
+            <label class="input-group-text">STATUS</label>
+            <select class="form-select" id="DodajProjektStatus">
+              <option selected value="U pripremi">U pripremi</option>
+              <option value="U tijeku">U tijeku</option>
+              <option value="Završen">Završen</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Odustani</button>
+          <button type="button" class="btn btn-success" id="ButtonDodajProjekt">Dodaj</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+  <script src="js/firebase_config.js"></script>
+
+  <script src="assets/plugins/bootstrap-5.0.0-beta1-dist/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.hr.min.js"></script>  
+
+</body>
+
+</html>

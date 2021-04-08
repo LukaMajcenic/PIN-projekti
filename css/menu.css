@@ -1,0 +1,114 @@
+:focus 
+{
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+	border-color: transparent !important;
+}
+
+#Menu
+{
+	position: absolute;
+	background-color: #444444;
+	width: 20%;
+	height: 100vw;
+	box-shadow: 1px 0px 30px 10px rgba(0,0,0,0.4);
+	text-align: center;
+	opacity: 0.95;
+}
+
+#ZatvoriMenu
+{
+	float: right;
+	background-color: white;
+	margin-top: 25px;
+	border-radius: 4px 0px 0px 4px;
+}
+
+#OtvoriMenu
+{
+	position: absolute;
+	background-color: #444444;
+	border-radius: 0px 4px 4px 0px;
+	margin-top: 25px;
+}
+
+#TekstOtvoriMeni
+{
+	color: white;
+	display: none;
+}
+
+#OtvoriMenu:hover
+{
+	width: 140px;
+}
+
+#OtvoriMenu:hover #TekstOtvoriMeni
+{
+	display: inline;
+	margin-right: 10px;
+}
+
+#testBtn
+{
+	background-color: #333333; 
+	margin-top: 25px; 
+	width: 83%;
+	border-radius: 0px 4px 4px 0px;
+	color: white;
+	padding-left: 50px;
+	float: left;
+}
+
+#UserPhoto
+{
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: 5px;
+	top: 20px;
+	border: 2px solid white;
+	max-height: 50px;
+	max-width: 50px;
+}
+
+.ButtonDrugaStranica
+{
+	width: 100%;
+	border-radius: 0px;
+	background-color: #333333;
+	color: white;
+	box-shadow: inset 0px 10px 20px -10px rgba(0,0,0,0.25);
+	height: 60px;
+	text-align: left;
+}
+
+.ButtonDrugaStranica:hover, #testBtn:hover
+{
+	box-shadow: inset 0px 10px 20px 15px rgba(0,0,0,0.25);
+	color: white;
+}
+
+#ButtonHome
+{
+	margin-top: 45px;
+}
+
+.ButtonDrugaStranica i
+{
+	font-size: 20px;
+	color: grey;
+	margin-right: 6px;
+}
+
+.live-search-box, #ButtonDodajProjektModal, #ButtonUkloniKorisnika, #MenuButtonGroup
+{
+	width: 90%;
+	margin: 5px auto;
+	float: unset;
+}
+
+.live-search-box::placeholder
+{
+	color: black !important;
+}

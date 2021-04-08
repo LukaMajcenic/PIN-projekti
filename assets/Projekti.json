@@ -1,0 +1,73 @@
+{
+	"Projekti":[{
+		"naziv": "Projekt 1",
+		"opis": "neki opis",
+		"voditelj_ime": "Marko Markic",
+		"voditelj_prezime": "Marko Markic",
+		"status": "U tijeku",
+		"vrijednost": "2000 kn",
+		"tip": "Društveni",
+		"aktivnosti": "2",
+		"korisnik": "ne0xWFMm75Y10G0fnV3uip9AS8I2"
+	},
+	{
+		"naziv": "Projekt 2",
+		"opis": "neki opis2",
+		"voditelj_ime": "Marko Markic",
+		"voditelj_prezime": "Markisdsdsc",
+		"status": "U pripremi",
+		"vrijednost": "2000 kn",
+		"tip": "Društveni",
+		"aktivnosti": "1",
+		"korisnik": "ne0xWFMm75Y10G0fnV3uip9AS8I2"
+	},
+	{
+		"naziv": "Projekt 3",
+		"opis": "neki opis 3",
+		"voditelj_ime": "Marko",
+		"voditelj_prezime": "Marko",
+		"status": "Završen",
+		"vrijednost": "3434 kn",
+		"tip": "Infrastrukturni",
+		"aktivnosti": "0",
+		"korisnik": "ne0xWFMm75Y10G0fnV3uip9AS8I2"
+	},
+	{
+		"naziv": "Projekt 4",
+		"opis": "neki opis4",
+		"voditelj_ime": "Marko",
+		"voditelj_prezime": "Markic2",
+		"status": "Završen",
+		"vrijednost": "10000 kn",
+		"tip": "Kulturni",
+		"aktivnosti": "0",
+		"korisnik": "ne0xWFMm75Y10G0fnV3uip9AS8I2"
+	}],
+	"Aktivnosti":[{
+		"projekt_id": "0",
+		"naziv": "Aktivnost 1",
+		"opis": "Opis 1",
+		"vrijeme_kreiranja": "01/01/2021",
+		"datum_rok": "02/01/2021",
+		"rok": "101",
+		"status": "U tijeku"
+	},
+	{
+		"projekt_id": "1",
+		"naziv": "Aktsdsdsost 1",
+		"opis": "Osdds1",
+		"vrijeme_kreiranja": "01/01/2021",
+		"datum_rok": "06/01/2021",
+		"rok": "10",
+		"status": "U tijeku"
+	},
+	{
+		"projekt_id": "0",
+		"naziv": "Aktivnost 2",
+		"opis": "Opis 1",
+		"vrijeme_kreiranja": "07/01/2021",
+		"datum_rok": "12/01/2021",
+		"rok": "20",
+		"status": "Završen"
+	}]
+}

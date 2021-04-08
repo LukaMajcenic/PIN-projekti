@@ -1,0 +1,384 @@
+/*Odabrani datum*/
+.datepicker table tr td.active:active, 
+.datepicker table tr td.active.highlighted:active, 
+.datepicker table tr td.active.active, 
+.datepicker table tr td.active.highlighted.active {
+  background-color: #444444 !important;
+}
+
+.ReadOnlyButton
+{
+	background-color: #444444;
+}
+
+.ReadOnlyButtonTipovi
+{
+	background-color: rgba(255,255,255, 0.7);
+	width: 70%;
+	margin:0 auto;
+	display:block;
+	font-size: 17px;
+}
+
+.solid
+{
+	color: #222222;
+}
+
+.ReadOnlyButton:hover, .ReadOnlyButtonTipovi:hover
+{
+	cursor: default;
+}
+
+body
+{
+	background-repeat: no-repeat;
+	background-color: #fcfcfc;
+	height: 100%;
+	font-family: 'Heebo', sans-serif;
+}
+
+.DodajProjektCard
+{
+	text-align: center;
+}
+
+.DodajProjektCard i
+{
+	font-size: 20px;
+	color: #999999;
+}
+
+.card-img-top
+{
+	height: 100px;
+	object-fit: cover;
+	margin-top: 15px;
+	border-radius: 0px 0px 0px 0px;
+}
+
+a
+{
+	color: black;
+}
+
+a:hover
+{
+	color: #444444;
+	animation-name: card_hover;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes card_hover
+{
+	from {background-color: white;}
+  	to {background-color: #444444;}
+
+  	to {color: white}
+}
+
+.card
+{
+	border-width: 0px;
+}
+
+.MainCard:hover
+{  
+    transform: scale(1.03);
+    animation-name: card_hover;
+    animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+#NedavnoUpdate
+{
+	color: silver;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	margin: 5px;
+	font-size: 80%;
+}
+
+.MainCardHeader
+{
+	box-shadow: inset 0px -28px 10px -30px #000000;
+}
+
+.MainCardBody
+{
+	box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.4);
+}
+
+.modal-header, .modal-footer
+{
+	padding: 5px;
+}
+
+#HeaderButton
+{
+	background-color: white;
+}
+
+.EditButtonAktivnostStatus, .EditButtonAktivnostDelete
+{
+	
+	width: 90%;
+}
+
+.EditButtonAktivnostStatus
+{
+	background-color: #444444;
+	border-width: 0px;
+}
+
+#rokString, #rokStringAdd
+{
+	background-color: white;
+}
+
+.EditButtonAktivnostDelete:hover > i, #HeaderButton:hover > i
+{
+	color: red !important;
+}
+
+.accordion-header
+{
+	height: 60px;
+}
+
+.accordion-header button[aria-expanded='true']
+{
+	background-color: #444444;
+	color: white;
+	border-color: transparent;
+}
+
+:focus 
+{
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+	border-color: transparent !important;
+}
+
+.accordion-collapse
+{
+	border-color: #F9F9F9;
+	border-width: 5px;
+}
+
+.progress
+{
+	height: 25px;
+	background-color: #F9F9F9;
+}
+
+.progress-bar
+{
+	color: #444444;
+}
+
+.iEditButton
+{
+	color: #999999 !important;
+}
+
+.EditButton, .EditButtonAktivnost, .textarea-addon, .EditButtonAktivnostDelete
+{
+	background-color: #F9F9F9;
+	box-shadow: inset 0 10px 7px -5px rgba(0,0,0,0.1);
+	border-radius: 4px 4px 0px 0px;
+}
+
+#EditButtonNaslov
+{
+	position: absolute;
+	right: 0px;
+	top: 18px;
+	border-radius: 4px 0px 0px 4px;
+}
+
+::placeholder
+{
+	color: red !important;
+}
+
+.EditButton:hover, .EditButtonAktivnost:hover, .EditButtonAktivnostDelete:hover, .textarea-addon:hover, .EditButtonAktivnostDelete:hover
+{
+	box-shadow: inset 0 20px 12px -5px rgba(0,0,0,0.2) !important;
+}
+
+.input-group-text
+{
+	background-color: #444444;
+	color: white;
+}
+
+.textarea-addon
+{
+	width: 10%;
+	background-color: #F9F9F9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0px 4px 4px 0px;
+}
+
+#CoverRok, #CoverKreiranje
+{
+	background-color: #444444; 
+	
+	position: absolute; 
+	z-index: 5; 
+	opacity: 0.7;
+}
+
+#CoverRok
+{	
+	width: 94%; 
+	height: 95px; 
+}
+
+#CoverKreiranje
+{	
+	width: 102%; 
+	height: 45px; 
+	top: 48px;	
+}
+
+#DatumPotvrdi
+{
+	position: absolute;
+	top: 160px;
+	right: 16px;
+}
+
+#DatumPotvrdi i
+{
+	color: white !important;
+}
+
+.btn-success, .btn-danger
+{
+	float: right;
+	margin-left: 5px;
+}
+
+.TopModal
+{
+	box-shadow: 0px 0px 50px 50px rgba(255,255,255,1);
+	box-shadow: 0px 0px 50px 50px rgba(255,255,255,1);
+	box-shadow: 0px 0px 50px 50px rgba(255,255,255,1);
+
+}
+
+
+/*HEXAGON*/
+/*===================*/
+.hexagon {
+	position: absolute;
+	right: -12px;
+	top: -17px;
+	width: 45px; 
+	height: 25.98px;
+	background-color: #444444;
+	margin: 12.99px 0;
+  }
+  
+  .hexagon:before,
+  .hexagon:after {
+	content: "";
+	position: absolute;
+	width: 0;
+	border-left: 22.5px solid transparent;
+	border-right: 22.5px solid transparent;
+  }
+  
+  .hexagon:before {
+	bottom: 100%;
+	border-bottom: 12.99px solid #444444;
+  }
+  
+  .hexagon:after {
+	top: 100%;
+	width: 0;
+	border-top: 12.99px solid #444444;
+  }
+
+/*PROGRESS BAR*/
+/*===================*/  
+  .progress2 {
+	width: 26px;
+	height: 26px;
+	background: none;
+	position: relative;
+  }
+  
+  .progress2::after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	border: 3px solid #77DD77;
+	position: absolute;
+	top: 0;
+	left: 0;
+  }
+  
+  .progress2>span {
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+  }
+  
+  .progress2 .progress-left {
+	left: 0;
+  }
+  
+  .progress2 .progress-bar {
+	width: 100%;
+	height: 100%;
+	background: none;
+	border-width: 3px;
+	border-style: solid;
+	position: absolute;
+	top: 0;
+  }
+  
+  .progress2 .progress-left .progress-bar {
+	left: 100%;
+	border-top-right-radius: 80px;
+	border-bottom-right-radius: 80px;
+	border-left: 0;
+	-webkit-transform-origin: center left;
+	transform-origin: center left;
+  }
+  
+  .progress2 .progress-right {
+	right: 0;
+  }
+  
+  .progress2 .progress-right .progress-bar {
+	left: -100%;
+	border-top-left-radius: 80px;
+	border-bottom-left-radius: 80px;
+	border-right: 0;
+	-webkit-transform-origin: center right;
+	transform-origin: center right;
+  }
+  
+  .progress2 .progress-value {
+	position: absolute;
+	top: 0;
+	left: 0;
+  }
+
+  .ProgressValue
+  {
+	  font-size: 10px;
+	  color: white;
+	  font-weight: bold;
+  }

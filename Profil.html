@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profil</title>
+  <meta charset="UTF-8">
+  <script src="assets/plugins/jquery/jquery-3.2.1.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet'>
+  <link rel="stylesheet" href="assets/plugins/bootstrap-5.0.0-beta1-dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/profil.css">
+  <link rel="stylesheet" type="text/css" href="css/menu.css">
+  <script src="https://kit.fontawesome.com/2ed5dcf434.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Date-Picker Plugin -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+</head>
+<body style="background-image: url('bg.png');">
+  
+  <button type="button" class="btn" id="OtvoriMenu">
+    <span id="TekstOtvoriMeni">Otvori meni</span><i class="fas fa-bars" style="color: white;"></i>
+  </button>
+  <div id="Menu">  
+
+    <button type="button" class="btn" id="testBtn"> 
+      <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="UserPhoto">
+      Ime Prezime</button>  
+    <button type="button" class="btn" id="ZatvoriMenu">
+      <i class="fas fa-bars" style="color: #444444;"></i>
+    </button>
+    <br>
+    <br>
+    <br>
+
+    <hr class="solid">
+
+    <button type="button" class="btn btn-danger" id="ButtonUkloniKorisnika" data-bs-toggle="modal" data-bs-target="#DeleteUserModal">
+      Obriši korisnika   <i class="fas fa-minus-circle"></i></button>
+    
+    <hr class="solid">
+
+    <button class="btn ButtonDrugaStranica" id="ButtonHome">
+      <i class="fas fa-home"></i>POČETNA
+    </button>
+    <button class="btn ButtonDrugaStranica" id="ButtonStatistika">
+      <i class="far fa-chart-bar"></i>STATISTIKA
+    </button>
+    <button class="btn ButtonDrugaStranica" id="ButtonProfil">
+      <i class="fas fa-user-cog"></i>PROFIL
+    </button>
+    <button class="btn ButtonDrugaStranica" id="ButtonOdjava">
+      <i class="fas fa-sign-out-alt"></i></i>ODJAVA
+    </button>
+
+  </div>
+
+  <div class="container-fluid" id="MainPageContainer" style="width: 80%; float: right;">
+		<div class="row">
+      <div class="col-lg" style="margin-top: 40px;">
+
+        <div class="card-body" style="box-shadow: 0px -4px 8px rgba(0,0,0,0.3)">
+
+          <!-- Profilna slika -->
+          <button type="button" class="btn btn-sm ReadOnlyButton">
+            <i class="fas fa-image"></i>
+            <span style="color: white">PROFILNA SLIKA</span>
+          </button>
+          <button type="button" class="btn btn-sm EditButton" data-bs-toggle="modal" data-bs-target="#EditProfilnuModal">
+            <i class="fas fa-edit iEditButton"></i>
+          </button>
+          <br>
+          <div class="card">
+            <div class="card-body CardInfo">
+              <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="ImgEdit">
+            </div>
+          </div><br>
+
+          <!-- Korisnicko ime -->
+          <button type="button" class="btn btn-sm ReadOnlyButton">
+            <i class="fas fa-signature"></i>
+            <span style="color: white">KORISNIČKO IME</span>
+          </button>
+          <button type="button" class="btn btn-sm EditButton" data-bs-toggle="modal" data-bs-target="#EditImeModal">
+            <i class="fas fa-edit iEditButton"></i>
+          </button>
+          <br>
+          <div class="card">
+            <div class="card-body CardInfo" id="UserNameCard">
+              Neki opis kojfdmogu smislit jer...
+            </div>
+          </div><br>
+
+          <!-- Email -->
+          <button type="button" class="btn btn-sm ReadOnlyButton">
+            <i class="fas fa-at"></i>
+            <span style="color: white">E-MAIL</span>
+          </button>
+          <button type="button" class="btn btn-sm EditButton" data-bs-toggle="modal" data-bs-target="#EditEmailModal">
+            <i class="fas fa-edit iEditButton"></i>
+          </button>
+          <br>
+          <div class="card">
+            <div class="card-body CardInfo" id="EmailCard">
+              Neki opis kojfdmogu smislit jer...
+            </div>
+          </div><br>
+
+          <!-- Lozinka -->
+          <button type="button" class="btn btn-sm ReadOnlyButton">
+            <i class="fas fa-key"></i>
+            <span style="color: white">LOZINKA</span>
+          </button>
+          <button type="button" class="btn btn-sm EditButton" data-bs-toggle="modal" data-bs-target="#EditPasswordModal">
+            <i class="fas fa-edit iEditButton"></i>
+          </button>
+          <br>
+          <div class="card">
+            <div class="card-body CardInfo" id="PasswordCard">
+              •••••••
+            </div>
+          </div><br>
+          
+        </div>
+          
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="EditProfilnuModal" tabindex="-1" aria-hidden="true" style="margin-top: 150px !important;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <h4>Uredi profilnu sliku</h4>
+          <!-- Edit profilnu -->
+          <div class="input-group mb-3 mt-3">
+            <span class="input-group-text">URL</span>
+            <input type="text" class="form-control" id="ProfileImageUrl">
+          </div>
+          
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Odustani</button>
+          <button type="button" class="btn btn-success" id="ButtonUrediProfilnu">Spremi</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="EditImeModal" tabindex="-1" aria-hidden="true" style="margin-top: 150px !important;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <h4>Uredi korisničko ime</h4>
+          <!-- Edit ime -->
+          <div class="input-group mb-3 mt-3">
+            <span class="input-group-text">KORISNIČKO IME</span>
+            <input type="text" class="form-control" id="ImeInput">
+          </div>
+          
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Odustani</button>
+          <button type="button" class="btn btn-success" id="ButtonUrediIme">Spremi</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="EditEmailModal" tabindex="-1" aria-hidden="true" style="margin-top: 150px !important;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <h4>Uredi e-mail</h4>
+          <!-- Edit mail -->
+          <div class="input-group mb-3 mt-3">
+            <span class="input-group-text">E-MAIL</span>
+            <input type="text" class="form-control" id="EmailInput">
+            <span class="input-group-text" style="background-color: #E9ECEF; color: black;">@</span>
+            <input type="text" class="form-control" id="ServerInput">
+          </div>
+
+          <hr>
+
+          <!-- Lozinka provjera -->
+          <div class="input-group mb-1 mt-3 PasswordConfirm">
+            <span class="input-group-text">LOZINKA</span>
+            <input type="password" class="form-control" id="LozinkaProvjera">
+          </div>
+          <button type="button" class="btn InfoButton mb-3"><i class="fas fa-info" disabled></i> Promjena e-pošte zahtijeva unos postojeće lozinke</button><br>
+          
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Odustani</button>
+          <button type="button" class="btn btn-success" id="ButtonUrediEmail">Spremi</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="EditPasswordModal" tabindex="-1" aria-hidden="true" style="margin-top: 150px !important;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <h4>Uredi lozinku</h4>
+          <!-- Edit lozinku -->
+          <div class="input-group mb-3 mt-3">
+            <span class="input-group-text">NOVA LOZINKA</span>
+            <input type="password" class="form-control" id="PasswordInput">
+          </div>
+
+          <!-- Edit lozinku potvrda-->
+          <div class="input-group mb-3 mt-3">
+            <span class="input-group-text">POTVRDI NOVU LOZINKU</span>
+            <input type="password" class="form-control" id="PasswordPotvrdiInput">
+          </div>
+          
+          <hr>
+
+          <!-- Lozinka provjera -->
+          <div class="input-group mb-1 mt-3 PasswordConfirm">
+            <span class="input-group-text">STARA LOZINKA</span>
+            <input type="password" class="form-control" id="LozinkaProvjera2">
+          </div>
+          <button type="button" class="btn InfoButton mb-3"><i class="fas fa-info" disabled></i> Promjena lozinke zahtijeva unos postojeće lozinke</button><br>
+          
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Odustani</button>
+          <button type="button" class="btn btn-success" id="ButtonUrediLozinku">Spremi</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="DeleteUserModal" tabindex="-1" aria-hidden="true" style="margin-top: 150px !important;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <h4>Obriši korisnika</h4>
+          <!-- Lozinka provjera -->
+          <div class="input-group mb-1 mt-3 PasswordConfirm">
+            <span class="input-group-text">LOZINKA</span>
+            <input type="password" class="form-control" id="LozinkaProvjeraDeleteUser">
+          </div>
+          <button type="button" class="btn InfoButton mb-3"><i class="fas fa-info" disabled></i> Brisanje korisnika zahtijeva unos lozinke</button><br>
+          
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Odustani</button>
+          <button type="button" class="btn btn-success" id="ButtonObrisiKorisnik">Potvrdi</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+  <script src="js/firebase_config.js"></script>
+
+  <script src="assets/plugins/bootstrap-5.0.0-beta1-dist/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="js/profil.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+  <script>
+    moment().format();
+  </script>
+</body>
+
+</html>

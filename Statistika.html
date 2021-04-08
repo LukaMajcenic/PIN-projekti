@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Statistika</title>
+	<meta charset="UTF-8">
+  <script src="assets/plugins/jquery/jquery-3.2.1.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet'>
+  <link rel="stylesheet" href="assets/plugins/bootstrap-5.0.0-beta1-dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/statistika.css">
+  <link rel="stylesheet" type="text/css" href="css/menu.css">
+  <script src="https://kit.fontawesome.com/2ed5dcf434.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Date-Picker Plugin -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+</head>
+<body style="background-image: url('bg.png');">
+  
+  <button type="button" class="btn" id="OtvoriMenu">
+    <span id="TekstOtvoriMeni">Otvori meni</span><i class="fas fa-bars" style="color: white;"></i>
+  </button>
+  <div id="Menu">  
+
+    <button type="button" class="btn" id="testBtn"> 
+      <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="UserPhoto">
+      Ime Prezime</button>  
+    <button type="button" class="btn" id="ZatvoriMenu">
+      <i class="fas fa-bars" style="color: #444444;"></i>
+    </button>
+    <br>
+    <br>
+    <br>
+
+    <hr class="solid">
+
+    <div class="btn-group-vertical" role="group" id="RadioButtons">
+      <input type="radio" class="btn-check" name="btnradio" id="Projekti" autocomplete="off" checked>
+      <label class="btn btn-outline-light" for="Projekti">Projekti</label>
+    
+      <input type="radio" class="btn-check" name="btnradio" id="Aktivnosti" autocomplete="off">
+      <label class="btn btn-outline-light" for="Aktivnosti">Aktivnosti</label>
+    </div>
+
+    <button class="btn ButtonDrugaStranica" id="ButtonHome">
+      <i class="fas fa-home"></i>POČETNA
+    </button>
+    <button class="btn ButtonDrugaStranica" id="ButtonStatistika">
+      <i class="far fa-chart-bar"></i>STATISTIKA
+    </button>
+    <button class="btn ButtonDrugaStranica" id="ButtonProfil">
+      <i class="fas fa-user-cog"></i>PROFIL
+    </button>
+    <button class="btn ButtonDrugaStranica" id="ButtonOdjava">
+      <i class="fas fa-sign-out-alt"></i></i>ODJAVA
+    </button>
+
+  </div>
+
+  <div class="container-fluid ContainerProjekti" id="MainPageContainer" style="width: 80%; float: right;">
+    <div class="row">
+      <div class="col-12">
+        <div class="bg-white rounded-lg p-4 m-5 shadow">
+          <div class="container">
+            <div class="row">
+              <div class="col-4 text-center" id="UkupnaVrijednost">
+                
+              </div>
+
+              <div class="col-4 text-center" id="BrojProjekata">
+              </div>
+
+              <div class="col-4 text-center" id="ProsjecnaVrijednost"></div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+		<div class="row">
+      <div class="col-lg" style="margin-top: 40px;" id="progPripremi">
+        <div class="bg-white rounded-lg p-5 m-5 shadow">
+          <h4 class="font-weight-bold text-center mb-4">U pripremi</h4>
+  
+          <!-- Progress bar 1 -->
+          <div class="progress mx-auto" data-value='60'>
+            <span class="progress-left">
+                          <span class="progress-bar progress-Pripremi"></span>
+            </span>
+            <span class="progress-right">
+                          <span class="progress-bar progress-Pripremi"></span>
+            </span>
+            <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+              <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+            </div>
+          </div>
+          <!-- END -->
+  
+          <!-- Demo info -->
+        <div class="row text-center mt-4">
+         <button class="btn btn-list">dsd</button>
+        </div>
+        <!-- END -->
+        </div>          
+      </div>
+
+      <div class="col-lg" style="margin-top: 40px;" id="progTijeku">
+        <div class="bg-white rounded-lg p-5 m-5 shadow">
+          <h4 class="font-weight-bold text-center mb-4">U tijeku</h4>
+  
+          <!-- Progress bar 1 -->
+          <div class="progress mx-auto" data-value='80'>
+            <span class="progress-left">
+                          <span class="progress-bar progress-Tijeku"></span>
+            </span>
+            <span class="progress-right">
+                          <span class="progress-bar progress-Tijeku"></span>
+            </span>
+            <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+              <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+            </div>
+          </div>
+          <!-- END -->
+  
+          <!-- Demo info -->
+        <div class="row text-center mt-4">
+         <button class="btn btn-list">dsd</button>
+        </div>
+        <!-- END -->
+        </div>   
+      </div>
+
+      <div class="col-lg" style="margin-top: 40px;" id="progZavrseni">
+        <div class="bg-white rounded-lg p-5 m-5 shadow">
+          <h4 class="font-weight-bold text-center mb-4">Završeni</h4>
+  
+          <!-- Progress bar 1 -->
+          <div class="progress mx-auto" data-value='80' id="progZavrseni">
+            <span class="progress-left">
+                          <span class="progress-bar progress-Zavrseni"></span>
+            </span>
+            <span class="progress-right">
+                          <span class="progress-bar progress-Zavrseni"></span>
+            </span>
+            <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+              <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+            </div>
+          </div>
+          <!-- END -->
+  
+          <!-- Demo info -->
+        <div class="row text-center mt-4">
+         <button class="btn btn-list">dsd</button>
+        </div>
+        <!-- END -->
+        </div>         
+          
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg" style="margin-top: 40px;" id="progDrustveni">
+        <div class="bg-white rounded-lg p-5 m-5 shadow">
+          <h4 class="font-weight-bold text-center mb-4">Društveni</h4>
+  
+          <!-- Progress bar -->
+          <div class="progress mx-auto" data-value='80'>
+            <span class="progress-left">
+                          <span class="progress-bar progress-Pripremi"></span>
+            </span>
+            <span class="progress-right">
+                          <span class="progress-bar progress-Pripremi"></span>
+            </span>
+            <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+              <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+            </div>
+          </div>
+          <!-- END -->
+  
+          <!-- Demo info -->
+        <div class="row text-center mt-4">
+         <button class="btn btn-list">dsd</button>
+        </div>
+        <!-- END -->
+        </div>          
+      </div>
+
+      <div class="col-lg" style="margin-top: 40px;" id="progInfrastrukturni">
+        <div class="bg-white rounded-lg p-5 m-5 shadow">
+          <h4 class="font-weight-bold text-center mb-4">Infrastrukturni</h4>
+  
+          <!-- Progress bar -->
+          <div class="progress mx-auto" data-value='80'>
+            <span class="progress-left">
+                          <span class="progress-bar progress-Tijeku"></span>
+            </span>
+            <span class="progress-right">
+                          <span class="progress-bar progress-Tijeku"></span>
+            </span>
+            <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+              <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+            </div>
+          </div>
+          <!-- END -->
+  
+          <!-- Demo info -->
+        <div class="row text-center mt-4">
+         <button class="btn btn-list">dsd</button>
+        </div>
+        <!-- END -->
+        </div>   
+      </div>
+
+      <div class="col-lg" style="margin-top: 40px;" id="progKulturni">
+        <div class="bg-white rounded-lg p-5 m-5 shadow">
+          <h4 class="font-weight-bold text-center mb-4">Kulturni</h4>
+  
+          <!-- Progress bar -->
+          <div class="progress mx-auto" data-value='80'>
+            <span class="progress-left">
+                          <span class="progress-bar progress-Zavrseni"></span>
+            </span>
+            <span class="progress-right">
+                          <span class="progress-bar progress-Zavrseni"></span>
+            </span>
+            <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+              <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+            </div>
+          </div>
+          <!-- END -->
+  
+          <!-- info -->
+        <div class="row text-center mt-4">
+         <button class="btn btn-list">dsd</button>
+        </div>
+        <!-- END -->
+        </div>         
+          
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid ContainerAktivnosti" id="MainPageContainer" style="width: 80%; float: right;">
+    <div class="row">
+      <div class="col-12">
+        <div class="bg-white rounded-lg p-4 m-5 shadow">
+          <div class="container">
+            <div class="row">
+              <div class="col-6 text-center" id="BrojAktivnosti"></div>
+
+              <div class="col-6 text-center" id="ProsjecanRok"></div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+		<div class="row">
+      <div class="col-lg" style="margin-top: 40px;" id="progTijekuAk">
+        <div class="bg-white rounded-lg p-5 m-5 shadow">
+          <h4 class="font-weight-bold text-center mb-4">U tijeku</h4>
+  
+          <!-- Progress bar 1 -->
+          <div class="progress mx-auto" data-value='80'>
+            <span class="progress-left">
+                          <span class="progress-bar progress-Tijeku"></span>
+            </span>
+            <span class="progress-right">
+                          <span class="progress-bar progress-Tijeku"></span>
+            </span>
+            <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+              <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+            </div>
+          </div>
+          <!-- END -->
+  
+          <!-- Demo info -->
+        <div class="row text-center mt-4">
+         <button class="btn btn-list">dsd</button>
+        </div>
+        <!-- END -->
+        </div>   
+      </div>
+
+      <div class="col-lg" style="margin-top: 40px;" id="progZavrseniAk">
+        <div class="bg-white rounded-lg p-5 m-5 shadow">
+          <h4 class="font-weight-bold text-center mb-4">Završeni</h4>
+  
+          <!-- Progress bar 1 -->
+          <div class="progress mx-auto" data-value='80' id="progZavrseni">
+            <span class="progress-left">
+                          <span class="progress-bar progress-Zavrseni"></span>
+            </span>
+            <span class="progress-right">
+                          <span class="progress-bar progress-Zavrseni"></span>
+            </span>
+            <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+              <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+            </div>
+          </div>
+          <!-- END -->
+  
+          <!-- Demo info -->
+        <div class="row text-center mt-4">
+         <button class="btn btn-list">dsd</button>
+        </div>
+        <!-- END -->
+        </div>         
+          
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+  <script src="js/firebase_config.js"></script>
+
+  <script src="assets/plugins/bootstrap-5.0.0-beta1-dist/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="js/statistika.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+  <script>
+    moment().format();
+  </script>
+</body>
+
+</html>

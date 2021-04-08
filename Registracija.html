@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registracija</title>
+	<meta charset="UTF-8">
+  <script src="assets/plugins/jquery/jquery-3.2.1.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet'>
+  <link rel="stylesheet" href="assets/plugins/bootstrap-5.0.0-beta1-dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/registracija.css">
+  <script src="https://kit.fontawesome.com/2ed5dcf434.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Date-Picker Plugin -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+</head>
+<body style="background-image: url('bg.png');">
+  
+  <div class="card-body" style="box-shadow: 0px -4px 8px rgba(0,0,0,0.3)">
+    <h5 class="card-text">Registracija</h5>
+    <hr class="solid">
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Mail" id="InputMail">
+      <span class="input-group-text">@</span>
+      <input type="text" class="form-control" placeholder="Server" id="InputServer">
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="password" class="form-control" placeholder="Lozinka" id="InputLozinka">
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Profilna slika (url)" id="InputProfilna">
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Korisničko ime" id="InputKorisnickoIme">
+    </div>
+
+    <button class="btn btn-success" id="ButtonRegistracija">
+      Registriraj se
+    </button>
+    
+  </div>
+
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+  <script src="js/firebase_config.js"></script>
+
+  <script src="assets/plugins/bootstrap-5.0.0-beta1-dist/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="js/registracija.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+  <script>
+    moment().format();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<div class="m-4 card text-left" style="background-color: #FBFBFB" >					
+  					<div class="card-header" style="background-color: #FFEE55" style="height: 20px">
+  					</div>
+  					<div class="card-body" style="box-shadow: 0px -4px 8px rgba(0,0,0,0.3)">
+  						<a class="stretched-link text-decoration-none" href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  							<h5 class="card-text">Naziv</h5>
+  							<p class="card-subtitle text-muted">Društveni</p>
+  							<hr class="solid">
+  							<i class="fas fa-user-tie"></i>
+  							<span>Marko Markić</span><br>
+  							<i class="fas fa-dollar-sign" style="margin: 0px 3px 0px 2px"></i>
+  							<span>Vrijednost</span><br>
+  							<i class="fas fa-hourglass-half" style="margin: 0px 1px 0px 1px"></i>
+  							<span>U tijeku</span>
+    					</a>
+  					</div>
+  				</div>
