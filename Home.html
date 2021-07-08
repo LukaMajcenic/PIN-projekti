@@ -3,6 +3,7 @@
 <head>
 	<title>Početna</title>
 	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="assets/plugins/jquery/jquery-3.2.1.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet'>
   <link rel="stylesheet" href="assets/plugins/bootstrap-5.0.0-beta1-dist/css/bootstrap.css">
@@ -13,61 +14,44 @@
   <!-- Bootstrap Date-Picker Plugin -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-    
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
 </head>
-<body style="background-image: url('bg.png');">
-
-  <button type="button" class="btn" id="OtvoriMenu">
-    <span id="TekstOtvoriMeni">Otvori meni</span><i class="fas fa-bars" style="color: white;"></i>
-  </button>
-  <div id="Menu">  
-
-    <button type="button" class="btn" id="testBtn"> 
-      <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="UserPhoto">
-      Ime Prezime</button>  
-    <button type="button" class="btn" id="ZatvoriMenu">
-      <i class="fas fa-bars" style="color: #444444;"></i>
-    </button>
-    <br>
-    <br>
-    <br>
-
-    <hr class="solid">
-
-    <button type="button" class="btn btn-success" id="ButtonDodajProjektModal" data-bs-toggle="modal" data-bs-target="#DodajProjektModal">
-      Dodaj projekt   <i class="fas fa-plus-circle"></i></a></button>
-    
-    <hr class="solid">
-    
-    <input type="text" class="live-search-box form-control" placeholder="Pretraži"/>
-    <div class="btn-group" id="MenuButtonGroup" role="group" aria-label="Basic checkbox toggle button group">
-      <input type="checkbox" class="btn-check" id="Pripremi" autocomplete="off" checked>
-      <label class="btn btn-outline-light" for="Pripremi">U pripremi</label>
-    
-      <input type="checkbox" class="btn-check" id="Tijeku" autocomplete="off" checked>
-      <label class="btn btn-outline-light" for="Tijeku">U tijeku</label>
-    
-      <input type="checkbox" class="btn-check" id="Zavrsen" autocomplete="off" checked>
-      <label class="btn btn-outline-light" for="Zavrsen">Završen</label>
-    </div>
-
-    <button class="btn ButtonDrugaStranica" id="ButtonHome">
-      <i class="fas fa-home"></i>POČETNA
-    </button>
-    <button class="btn ButtonDrugaStranica" id="ButtonStatistika">
-      <i class="far fa-chart-bar"></i>STATISTIKA
-    </button>
-    <button class="btn ButtonDrugaStranica" id="ButtonProfil">
-      <i class="fas fa-user-cog"></i>PROFIL
-    </button>
-    <button class="btn ButtonDrugaStranica" id="ButtonOdjava">
-      <i class="fas fa-sign-out-alt"></i></i>ODJAVA
-    </button>
-
+<body style="background-image: url('bg.png');" id="body-pd">
+  
+  <header class="header" id="header">
+    <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+    <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+  </header>
+  <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+          <div> <a href="#" class="nav_logo"> <i class="fas fa-project-diagram nav_logo-icon"></i> <span class="nav_logo-name">PIN-PROJEKTI</span> </a>
+              <div class="nav_list"> 
+                <a href="Home.html" class="nav_link active"> 
+                  <i class="fas fa-home"></i> <span class="nav_name">Početna</span>
+                </a> 
+                <a href="Statistika.html" class="nav_link"> 
+                  <i class="far fa-chart-bar"></i> <span class="nav_name">Statistika</span>
+                </a> 
+                <a href="Profil.html" class="nav_link"> 
+                  <i class="fas fa-user-cog"></i> <span class="nav_name">Profil</span>
+                </a> 
+                <a href="Profil.html" class="nav_link"> 
+                  <i class="fas fa-square-full"></i> <span class="nav_name">XXX</span>
+                </a> 
+                <a href="Profil.html" class="nav_link"> 
+                  <i class="fas fa-square-full"></i> <span class="nav_name">XXX</span>
+                </a> 
+              </div>
+          </div> 
+          <a href="#" class="nav_link"> 
+            <i class="fas fa-sign-out-alt"></i> <span class="nav_name">Odjava</span> 
+          </a>
+      </nav>
   </div>
 
-	<div class="container-fluid" id="MainPageContainer" style="width: 80%; float: right;">
+	<div class="container-fluid" id="MainPageContainer">
 		<div class="row">
  
       
@@ -76,11 +60,11 @@
       </div>
 
 			<div class="col-lg" id="infrastrukturni" style="margin-top: 40px;">
-        <h5 style="text-align: center;">INFRASTRUKTURNI</h5>  
-				<div class="m-4 card text-left" id="MainCard">					
-  					<div class="card-header" style="background-color: #FFEE44">
-  					</div>
-  					<div class="card-body" style="box-shadow: 0px -4px 8px rgba(0,0,0,0.3)">
+        <h5 style="text-align: center;">INFRASTRUKTURNI</h5>
+				<div class="m-4 card text-left" id="MainCard">
+          <div style="background-color: red; height: 10px;" class="rounded-top">
+          </div>					
+  					<div class="card-body rounded">
   						<a class="stretched-link text-decoration-none" href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
   							<h5 class="card-text">Naziv</h5>
   							<p class="card-subtitle text-muted">Društveni</p>

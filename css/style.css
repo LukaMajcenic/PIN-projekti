@@ -1,3 +1,8 @@
+:root
+{
+
+}
+
 /*Odabrani datum*/
 .datepicker table tr td.active:active, 
 .datepicker table tr td.active.highlighted:active, 
@@ -57,12 +62,12 @@ body
 	border-radius: 0px 0px 0px 0px;
 }
 
-a
+.MainCardBody a
 {
 	color: black;
 }
 
-a:hover
+.MainCardBody a:hover
 {
 	color: #444444;
 	animation-name: card_hover;
@@ -81,6 +86,12 @@ a:hover
 .card
 {
 	border-width: 0px;
+	box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 20%);
+}
+
+.card a
+{
+	color: #444444;
 }
 
 .MainCard:hover

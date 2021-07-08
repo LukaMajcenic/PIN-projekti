@@ -4,7 +4,7 @@ oDbProjekti.on('value', function (oOdgovorPosluzitelja)
 	$("#EditAktivnostiModal").modal({backdrop: false});
 	$("#DodajAktivnostModal").modal({backdrop: false});
 	
-	$('.col-lg').empty();
+	//$('.col-lg').empty();
 
 	$('#drustveni').append('<button class="btn ReadOnlyButtonTipovi"><b>DRUŠTVENI</b></button>');
   	$('#infrastrukturni').append('<button class="btn ReadOnlyButtonTipovi"><b>INFRASTRUKTURNI</b></button>');

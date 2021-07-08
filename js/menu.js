@@ -1,40 +1,56 @@
-$('#ButtonHome').click(function()
-{
-	window.open('Home.html', "_blank");
-})
+const RYG = ['#FF6666', '#FFEE66', '#77DD77'];
 
-$('#ButtonStatistika').click(function()
+function SetActiveColor()
 {
-	window.open('statistika.html', "_blank");
-})
+	let randomIndex = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+	document.documentElement.style.setProperty('--active-color', RYG[randomIndex]);
+}
 
-$('#ButtonProfil').click(function()
-{
-	window.open('Profil.html', "_blank");
-})
+document.addEventListener("DOMContentLoaded", function(event) {
+SetActiveColor();
 
-$('#testBtn').click(function()
+const showNavbar = (toggleId, navId, bodyId, headerId) =>
 {
-	window.open('Profil.html', "_blank");
-})
+	const toggle = document.getElementById(toggleId),
+	nav = document.getElementById(navId),
+	bodypd = document.getElementById(bodyId),
+	headerpd = document.getElementById(headerId)
 
-$('#ButtonOdjava').click(function()
-{
-	firebase.auth().signOut().then(() => {
-		// Sign-out successful.
-	  })
-})
+	// Validate that all variables exist
+	if(toggle && nav && bodypd && headerpd)
+	{
+		toggle.addEventListener('click', ()=>
+		{
+			// show navbar
+			nav.classList.toggle('navShow')
+			// change icon
+			toggle.classList.toggle('bx-x')
+			// add padding to body
+			bodypd.classList.toggle('body-pd')
+			// add padding to header
+			headerpd.classList.toggle('body-pd')
+		})
+	}
+}
 
-$('#OtvoriMenu').click(function()
-{
-	$('#Menu').show();
-	$('#MainPageContainer').css('width', '80%');
-	$('#OtvoriMenu').hide();
-})
+showNavbar('header-toggle','nav-bar','body-pd','header')
 
-$('#ZatvoriMenu').click(function()
+/*===== LINK ACTIVE =====*/
+const linkColor = document.querySelectorAll('.nav_link')
+
+function colorLink()
 {
-	$('#Menu').hide();
-	$('#MainPageContainer').css('width', '100%');
-	$('#OtvoriMenu').show();
-})
+	if(linkColor)
+	{
+		linkColor.forEach(function(l)
+		{
+			SetActiveColor();
+			l.classList.remove('active')
+		})
+		this.classList.add('active')
+	}
+}
+linkColor.forEach(l=> l.addEventListener('click', colorLink))
+
+// Your code to run since DOM is loaded and ready
+});
