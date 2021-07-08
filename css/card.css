@@ -1,0 +1,53 @@
+.customCard
+{
+    box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 20%);
+    margin: 25px;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.customCard .cardBody
+{
+    background-color: white;
+    padding: 15px;
+}
+
+.customCard .cardHeader
+{
+    height: 30px;
+    background-color: red;
+    margin-bottom: -20px;
+}
+
+.customCard, .customCard .cardHeader, .customCard .cardBody
+{
+    border-radius: 4px;
+    transition: 100ms linear;
+}
+
+.customCard a
+{
+    color: #222;
+}
+
+.customCard .cardTip
+{
+    opacity: 0.5;
+}
+
+/* Card hover */
+
+.customCard:hover
+{
+    transform: scale(1.02);
+}
+
+.customCard:hover .cardBody
+{
+    background-color: #444;
+}
+
+.customCard:hover a
+{
+    color: white;
+}

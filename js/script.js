@@ -4,7 +4,7 @@ oDbProjekti.on('value', function (oOdgovorPosluzitelja)
 	$("#EditAktivnostiModal").modal({backdrop: false});
 	$("#DodajAktivnostModal").modal({backdrop: false});
 	
-	//$('.col-lg').empty();
+	$('.col-lg').empty();
 
 	$('#drustveni').append('<button class="btn ReadOnlyButtonTipovi"><b>DRUŠTVENI</b></button>');
   	$('#infrastrukturni').append('<button class="btn ReadOnlyButtonTipovi"><b>INFRASTRUKTURNI</b></button>');
@@ -36,38 +36,40 @@ oDbProjekti.on('value', function (oOdgovorPosluzitelja)
     	{
     		case 'U pripremi':
     		HeaderColor = '#FF6666';
+			HeaderColor2 = 'R';
     		ClockIcon = 'fas fa-hourglass-start';
     		break;
 
     		case 'U tijeku':
     		HeaderColor = '#FFEE66';
+			HeaderColor2 = 'Y';
     		ClockIcon = 'fas fa-hourglass-half';
     		break;
 
     		case 'Završen':
     		HeaderColor = '#77DD77'
+			HeaderColor2 = 'G';
     		ClockIcon = 'fas fa-hourglass-end';
     		break;
 		}
 
-		var CardString = '<div class="m-4 card text-left MainCard">' +			
-					  '<div class="card-header MainCardHeader" style="background-color:' + HeaderColor + '" style="height: 5px"></div>' +
-					
-					  //'<img src="https://about.fb.com/wp-content/uploads/2018/01/well-being.png?fit=1258%2C706" class="card-img-top" alt="...">' +
-					  '<div class="card-body MainCardBody">' +
-  						'<a class="stretched-link text-decoration-none MainCardLink" id="' + ListaSortirana[i].key + '" href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal">' +
-  							'<h5 class="card-text">' + oProjekt.naziv + '</h5>' +
-  							'<p class="card-subtitle text-muted">' + oProjekt.tip + '</p>' +
-  							'<hr class="solid">' +
-  							'<i class="fas fa-user-tie"></i>' +
-  							'<span>' + oProjekt.voditelj_ime + '</span> <span>' + oProjekt.voditelj_prezime +'</span><br>' +
-  							'<i class="fas fa-dollar-sign" style="margin: 0px 3px 0px 2px"></i>' +
-  							'<span class="MainCardVrijednost">' + oProjekt.vrijednost + '</span><br>' +
-  							'<i class="' + ClockIcon + '" style="margin: 0px 1px 0px 1px"></i>' +
-  							'<span class="MainCardStatus">' + oProjekt.status + '</span>' +
-    					'</a>' +
-  					'</div>' +
-  				'</div>';
+		var CardString = '<div class="customCard">' +
+							'<div class="cardHeader" style="background-color: var(--' + HeaderColor2 + ')">' +
+							'</div>' +
+							'<div class="cardBody">' +
+							'<a class="stretched-link text-decoration-none" id="' + ListaSortirana[i].key + '" href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal">' +
+								'<h5 class="mb-0">' + oProjekt.naziv + '</h5>' +
+								'<p class="cardTip">' + oProjekt.tip + '</p>' +
+								'<hr class="solid">' +
+								'<i class="fas fa-user-tie"></i>' +
+								'<span>' + oProjekt.voditelj_ime + '</span> <span>' + oProjekt.voditelj_prezime +'</span><br>' +
+								'<i class="fas fa-dollar-sign" style="margin: 0px 3px 0px 2px"></i>' +
+								'<span>' + oProjekt.vrijednost + '</span><br>' +
+								'<i class="fas fa-hourglass-half" style="margin: 0px 1px 0px 1px"></i>' +
+								'<span>' + oProjekt.status + '</span>' +
+							'</a>' +
+							'</div>' +
+						'</div>';
 
   		switch(oProjekt.tip)
   		{
@@ -436,10 +438,7 @@ function ModalData(UnosProjektId, UnosAktivnostId, AccordionOtvoren)
 $('.col-lg').on('click', 'a', function()
 {
 	console.log($(this).attr('class'));
-	if($(this).attr('class') == 'stretched-link text-decoration-none MainCardLink')
-	{
-		ModalData($(this).attr('id'), null, false);
-	}	
+	ModalData($(this).attr('id'), null, false);
 });
 
 function ModalEdit(ButtonId, TextAppend)
