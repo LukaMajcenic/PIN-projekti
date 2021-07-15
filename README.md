@@ -1,6 +1,6 @@
 # PIN-Projects
 
-### [**LIVE DEMO**](https://lukamajcenic1.github.io/PIN-projekti/Home.html)
+### [**LIVE DEMO**](https://lukamajcenic.github.io/PIN-projekti/Home.html)
 
 [**EN**] College project asignment for class *Basics of web programming*.
 
