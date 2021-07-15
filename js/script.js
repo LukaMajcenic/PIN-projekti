@@ -136,26 +136,22 @@ oDbProjekti.on('value', function (oOdgovorPosluzitelja)
 		}
 	});	
 
-	$('#drustveni').append(`<div class="m-4 card MainCard">
-	<div class="card-body MainCardBody DodajProjektCard">
-		  <a class="stretched-link text-decoration-none" id="ButtonDodajProjektX" data-bs-toggle="modal" href="#DodajProjektModal" data-bs-target="#DodajProjektModal">
-		  <i class="fas fa-plus-circle"></i></a>
+	function AddProjectCard(Tip)
+	{
+		return `<div class="customCard">
+		<div class="cardBody">
+		  <a class="stretched-link text-decoration-none flexCenter" id="ButtonDodajProjekt${Tip}" data-bs-toggle="modal" href="#DodajProjektModal" data-bs-target="#DodajProjektModal">
+			<i class="fas fa-plus-circle"></i>
+		  </a>
 		</div>
-	</div>`);
+	  </div>`;
+	}
 
-	$('#infrastrukturni').append(`<div class="m-4 card MainCard">
-	<div class="card-body MainCardBody DodajProjektCard">
-		  <a class="stretched-link text-decoration-none" id="ButtonDodajProjektY" data-bs-toggle="modal" href="#DodajProjektModal" data-bs-target="#DodajProjektModal">
-		  <i class="fas fa-plus-circle"></i></a>
-		</div>
-	</div>`);
+	$('#drustveni').append(AddProjectCard('X'));
 
-	$('#kulturni').append(`<div class="m-4 card MainCard">
-	<div class="card-body MainCardBody DodajProjektCard">
-		  <a class="stretched-link text-decoration-none" id="ButtonDodajProjektZ" data-bs-toggle="modal" href="#DodajProjektModal" data-bs-target="#DodajProjektModal">
-		  <i class="fas fa-plus-circle"></i></a>
-		</div>
-	</div>`);
+	$('#infrastrukturni').append(AddProjectCard('Y'));
+
+	$('#kulturni').append(AddProjectCard('Z'));
 
 
 	$('.MainCard').each(function(){

@@ -17,13 +17,26 @@
     box-sizing: border-box
 }
 
+.flexCenter
+{
+    display: flex;
+    justify-content: center;
+    align-items: middle;
+}
+
 body {
     position: relative;
     margin: var(--header-height) 0 0 0;
     padding: 0 1rem;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    transition: .5s
+    transition: .5s;
+    background-image: url('../bg.png');
+	background-repeat: no-repeat;
+	background-color: #fcfcfc;
+	background-position-x: 68px;
+	height: 100%;
+	font-family: 'Heebo', sans-serif;
 }
 
 a {

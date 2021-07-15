@@ -16,6 +16,9 @@ const showNavbar = (toggleId, navId, bodyId, headerId) =>
 	bodypd = document.getElementById(bodyId),
 	headerpd = document.getElementById(headerId)
 
+	//Postavi trenutni link aktivan
+	$(`a[href="${window.location.pathname.split("/").pop()}"]`).addClass('active');
+
 	// Validate that all variables exist
 	if(toggle && nav && bodypd && headerpd)
 	{
