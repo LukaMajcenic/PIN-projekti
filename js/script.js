@@ -1,3 +1,9 @@
+for(let i = 0; i < RandomNumber(1, 6); i++)
+{
+	let Columns = ['#drustveni', '#infrastrukturni', '#kulturni'];
+	$(Columns[RandomNumber(0,2)]).append('<div class="customCard skeletonCard"><div class="cardHeader"></div><div class="cardBody"></div></div>');
+}
+
 oDbProjekti.on('value', function (oOdgovorPosluzitelja)
 {
 	$("#EditSvojstvaModal").modal({backdrop: false});
@@ -20,7 +26,6 @@ oDbProjekti.on('value', function (oOdgovorPosluzitelja)
 
 			if(oProjektSnapshot.val().status == ListaStatusa[i] && oProjektSnapshot.val().korisnik == firebase.auth().currentUser.uid)
 			{
-				console.log('si si');
 				ListaSortirana.push(oProjektSnapshot);
 			}
 		})
@@ -1518,3 +1523,8 @@ $(window).focus(function()
 		$('#testBtn').html(`<img src="${firebase.auth().currentUser.photoURL}" alt="Avatar" id="UserPhoto">${firebase.auth().currentUser.displayName}`);
 	}
 });
+
+function RandomNumber(min, max)
+{
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}

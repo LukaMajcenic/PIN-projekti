@@ -8,6 +8,7 @@ function SetActiveColor()
 
 document.addEventListener("DOMContentLoaded", function(event) {
 SetActiveColor();
+let MenuExpanded = false;
 
 const showNavbar = (toggleId, navId, bodyId, headerId) =>
 {
@@ -24,14 +25,23 @@ const showNavbar = (toggleId, navId, bodyId, headerId) =>
 	{
 		toggle.addEventListener('click', ()=>
 		{
+			$('#' + toggleId).removeClass();
+			MenuExpanded = !MenuExpanded;
 			// show navbar
 			nav.classList.toggle('navShow')
-			// change icon
-			toggle.classList.toggle('bx-x')
 			// add padding to body
 			bodypd.classList.toggle('body-pd')
 			// add padding to header
 			headerpd.classList.toggle('body-pd')
+			// change icon
+			if(!MenuExpanded)
+			{
+				$('#' + toggleId).addClass('fas fa-expand-arrows-alt');
+			}
+			else
+			{
+				$('#' + toggleId).addClass('fas fa-compress-arrows-alt');
+			}
 		})
 	}
 }
@@ -54,6 +64,13 @@ function colorLink()
 	}
 }
 linkColor.forEach(l=> l.addEventListener('click', colorLink))
+
+$('#Signout').click(function()
+{
+	firebase.auth().signOut().then(() => {
+		// Sign-out successful.
+	})
+})
 
 // Your code to run since DOM is loaded and ready
 });

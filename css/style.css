@@ -393,3 +393,24 @@
 	  color: white;
 	  font-weight: bold;
   }
+
+.bigModal.modal-content, .bigModal .modal-header, .bigModal .modal-body
+{
+	border-radius: 4px;
+}
+
+.bigModal
+{
+	border: none;
+}
+
+.bigModal .modal-header
+{
+	height: 30px;
+}
+
+.bigModal .modal-body
+{
+	background-color: white;
+	margin-top: -20px;
+}
