@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="assets/plugins/jquery/jquery-3.2.1.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet'>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <link rel="stylesheet" href="assets/plugins/bootstrap-5.0.0-beta1-dist/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/menu.css">
@@ -22,13 +23,41 @@
 <body id="body-pd">
   
   <header class="header" id="header">
-    <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+    <div class="header_toggle"> <i class='fas fa-angle-double-right' id="header-toggle"></i> </div>
+
+    <div class="input-group headerInputGroup" onclick=" event.stopPropagation();">
+      <input type="text" class="live-search-box form-control" placeholder="Pretraži"/>
+      <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow p-2">
+        <span>STATUS</span>
+        <div class="btn-group w-100" id="MenuButtonGroup" role="group" aria-label="Basic checkbox toggle button group">
+          <input type="checkbox" class="btn-check" id="Pripremi" autocomplete="off" checked>
+          <label class="btn btn-outline-dark" for="Pripremi">U pripremi</label>
+        
+          <input type="checkbox" class="btn-check" id="Tijeku" autocomplete="off" checked>
+          <label class="btn btn-outline-dark" for="Tijeku">U tijeku</label>
+        
+          <input type="checkbox" class="btn-check" id="Zavrsen" autocomplete="off" checked>
+          <label class="btn btn-outline-dark" for="Zavrsen">Završen</label>
+        </div>
+      </ul>
+    </div>
+
+
     <div class="header_img"> <img src="https://comotion.uw.edu/wp-content/uploads/2019/05/generic-profile.png" alt="" id="UserPhoto"></div>
   </header>
   <div class="l-navbar" id="nav-bar">
       <nav class="nav">
-          <div> <a href="#" class="nav_logo"> <i class="fas fa-project-diagram nav_logo-icon"></i> <span class="nav_logo-name">PIN-PROJEKTI</span> </a>
-              <div class="nav_list"> 
+          <div> 
+            <a href="#" class="nav_logo"> <img src="logo.svg" class="nav_logo-icon"> <span class="nav_logo-name">PIN-PROJEKTI</span> </a>
+
+            <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i> Small button</button>
+
+              <div class="nav_list">
+                <a href="#" class="nav_link" id="ButtonDodajProjektModal" data-bs-toggle="modal" data-bs-target="#DodajProjektModal"> 
+                  <i class="fas fa-plus-circle"></i> <span class="nav_name">Dodaj projekt</span>
+                </a>
                 <a href="Home.html" class="nav_link"> 
                   <i class="fas fa-home"></i> <span class="nav_name">Početna</span>
                 </a> 
@@ -56,15 +85,15 @@
 		<div class="row pt-5">
        
 			<div class="col-lg" id="drustveni">
-        <h5 style="text-align: center;">DRUŠTVENI</h5>
+        <button class="btn ReadOnlyButtonTipovi"><b>DRUŠTVENI</b></button>
       </div>
 
-			<div class="col-lg" id="infrastrukturni">
-        <h5 style="text-align: center;">INFRASTRUKTURNI</h5>
+			<div class="col-lg borderLR" id="infrastrukturni">
+        <button class="btn ReadOnlyButtonTipovi"><b>INFRASTRUKTURNI</b></button>
 			</div>
 
 			<div class="col-lg" id="kulturni">
-        <h5 style="text-align: center;">KULTURNI</h5>     
+        <button class="btn ReadOnlyButtonTipovi"><b>KULTURNI</b></button>  
       </div>
       
 		</div>
@@ -74,18 +103,21 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content bigModal">
       <div class="modal-header">
-        <button id="HeaderButton" type="button" class="btn btn-sm">
-          <i style="color: #444444;" class="fas fa-trash-alt"></i>
-          <b><span style="color: #444444">Obriši</span></b>
-        </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body pt-0">
+
+        <div class="headerDiv mb-3">
+          <button id="HeaderButton" type="button" class="btn btn-sm EditButton">
+            <i style="color: #444444;" class="fas fa-trash-alt"></i>
+            <b><span style="color: #444444">Obriši</span></b>
+          </button>
+          <button type="button" class="btn btn-sm EditButton" data-bs-toggle="modal" data-bs-target="#EditSvojstvaModal" id="EditButtonNaslov">
+            <i class="fas fa-edit iEditButton"></i>
+          </button>
+        </div>
         
         <h1 id="ModalNaslov" style="word-wrap:break-word;">Naslov</h1>
         <h5 class="text-muted" id="ModalTip">Društveni</h5>
-        <button type="button" class="btn btn-sm EditButton" data-bs-toggle="modal" data-bs-target="#EditSvojstvaModal" id="EditButtonNaslov">
-          <i class="fas fa-edit iEditButton"></i>
-        </button>
         <hr class="solid">
 
         <!-- Opis -->
@@ -263,7 +295,7 @@
   </div>
   </div>
 
-  <div class="modal fade" id="EditSvojstvaModal" tabindex="-1" aria-labelledby="EditSvojstvaModalLabel" aria-hidden="true" style="margin-top: 150px !important;">
+  <div class="modal fade" id="EditSvojstvaModal" tabindex="-1" aria-labelledby="EditSvojstvaModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content TopModal">
         <div class="modal-body" id="IdGumba">

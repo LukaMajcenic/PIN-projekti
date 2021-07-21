@@ -1,8 +1,22 @@
+function AddProjectCard(Tip)
+{
+	return `<div class="customCard">
+	<div class="cardBody">
+	  <a class="stretched-link text-decoration-none flexCenter" id="ButtonDodajProjekt${Tip}" data-bs-toggle="modal" href="#DodajProjektModal" data-bs-target="#DodajProjektModal">
+		<i class="fas fa-plus-circle"></i>
+	  </a>
+	</div>
+  </div>`;
+}
+
 for(let i = 0; i < RandomNumber(1, 6); i++)
 {
 	let Columns = ['#drustveni', '#infrastrukturni', '#kulturni'];
 	$(Columns[RandomNumber(0,2)]).append('<div class="customCard skeletonCard"><div class="cardHeader"></div><div class="cardBody"></div></div>');
 }
+$('#drustveni').append(AddProjectCard('X'));
+$('#infrastrukturni').append(AddProjectCard('Y'));
+$('#kulturni').append(AddProjectCard('Z'));
 
 oDbProjekti.on('value', function (oOdgovorPosluzitelja)
 {
@@ -58,12 +72,12 @@ oDbProjekti.on('value', function (oOdgovorPosluzitelja)
     		break;
 		}
 
-		var CardString = '<div class="customCard">' +
+		var CardString = '<div class="customCard MainCard">' +
 							'<div class="cardHeader" style="background-color: var(--' + HeaderColor2 + ')">' +
 							'</div>' +
 							'<div class="cardBody">' +
 							'<a class="stretched-link text-decoration-none" id="' + ListaSortirana[i].key + '" href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal">' +
-								'<h5 class="mb-0">' + oProjekt.naziv + '</h5>' +
+								'<h5 class="mb-0 MainCardNaziv">' + oProjekt.naziv + '</h5>' +
 								'<p class="cardTip">' + oProjekt.tip + '</p>' +
 								'<hr class="solid">' +
 								'<i class="fas fa-user-tie"></i>' +
@@ -71,7 +85,7 @@ oDbProjekti.on('value', function (oOdgovorPosluzitelja)
 								'<i class="fas fa-dollar-sign" style="margin: 0px 3px 0px 2px"></i>' +
 								'<span>' + oProjekt.vrijednost + '</span><br>' +
 								'<i class="fas fa-hourglass-half" style="margin: 0px 1px 0px 1px"></i>' +
-								'<span>' + oProjekt.status + '</span>' +
+								'<span class="MainCardStatus">' + oProjekt.status + '</span>' +
 							'</a>' +
 							'</div>' +
 						'</div>';
@@ -141,17 +155,6 @@ oDbProjekti.on('value', function (oOdgovorPosluzitelja)
 		}
 	});	
 
-	function AddProjectCard(Tip)
-	{
-		return `<div class="customCard">
-		<div class="cardBody">
-		  <a class="stretched-link text-decoration-none flexCenter" id="ButtonDodajProjekt${Tip}" data-bs-toggle="modal" href="#DodajProjektModal" data-bs-target="#DodajProjektModal">
-			<i class="fas fa-plus-circle"></i>
-		  </a>
-		</div>
-	  </div>`;
-	}
-
 	$('#drustveni').append(AddProjectCard('X'));
 
 	$('#infrastrukturni').append(AddProjectCard('Y'));
@@ -185,9 +188,21 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 function SearchAndSort()
 {
-	var searchTerm = $('.live-search-box').val().toLowerCase();
+	var searchTermRaw = $('.live-search-box').val();
+	var searchTerm = searchTermRaw.toLowerCase();
 		
 	$('.MainCard').each(function(){
+
+		//Removes all .markText as .text() doesnt return html tags
+		$(this).find('.MainCardNaziv').text($(this).find('.MainCardNaziv').text());
+
+		if(searchTerm.length > 0)
+		{
+			var naslov = $(this).find('.MainCardNaziv').text();
+			naslov = naslov.replace(new RegExp(searchTerm,'i'),'<span class="markText">$&</span>');
+
+			$(this).find('.MainCardNaziv').html(naslov);
+		}
 	
 		if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) 
 		{
@@ -1528,3 +1543,13 @@ function RandomNumber(min, max)
 {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+$('#EditSvojstvaModal').on('shown.bs.modal', function() {
+	$('#exampleModal').removeClass('unblur'); 
+	$('#exampleModal').addClass('blur');
+})
+
+$('#EditSvojstvaModal').on('hide.bs.modal', function() { 
+	$('#exampleModal').removeClass('blur'); 
+	$('#exampleModal').addClass('unblur');
+})

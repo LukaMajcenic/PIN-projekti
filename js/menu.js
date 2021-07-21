@@ -36,11 +36,11 @@ const showNavbar = (toggleId, navId, bodyId, headerId) =>
 			// change icon
 			if(!MenuExpanded)
 			{
-				$('#' + toggleId).addClass('fas fa-expand-arrows-alt');
+				$('#' + toggleId).addClass('fas fa-angle-double-right');
 			}
 			else
 			{
-				$('#' + toggleId).addClass('fas fa-compress-arrows-alt');
+				$('#' + toggleId).addClass('fas fa-angle-double-left');
 			}
 		})
 	}

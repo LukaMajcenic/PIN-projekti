@@ -21,7 +21,7 @@
 {
     display: flex;
     justify-content: center;
-    align-items: middle;
+    align-items: center;
 }
 
 body {
@@ -111,8 +111,7 @@ a {
 }
 
 .nav_logo-icon {
-    font-size: 1.25rem;
-    color: var(--active-color)
+    height: 20px;
 }
 
 .nav_logo-name {
@@ -160,7 +159,7 @@ a {
     height: 100vh
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 578px) {
     body {
         margin: calc(var(--header-height) + 1rem) 0 0 0;
         padding-left: calc(var(--nav-width) + 2rem)
@@ -191,5 +190,18 @@ a {
 
     .body-pd {
         padding-left: calc(var(--nav-width) + 188px)
+    }
+}
+
+.headerInputGroup, .headerInputGroup .dropdown-menu
+{
+    width: 400px;
+}
+
+@media (max-width: 992px)
+{
+	.headerInputGroup
+    {
+        width: 200px;
     }
 }
