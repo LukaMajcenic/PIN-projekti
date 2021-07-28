@@ -4,27 +4,160 @@
 	border-color: transparent !important;
 }
 
-
 body
 {
+    background-image: url(../bg.png);
     background-repeat: no-repeat;
     background-color: #fcfcfc;
 }
 
-.card-body
-{
-    background-color: white;
-    width: 30%;
-    margin: 50px auto;
-}
-
 #InputMail
 {
-    width: 40%;
+    width: 20%;
 }
 
-#ButtonRegistracija
+.loginForm
 {
-    float: right;
-    border-color: #E6E6E6;
+    height: 100%;
+    width: 100%;
+    padding: 25px;
+}
+
+.loginForm .smallButton
+{
+    background-color: #F5F5F5;
+    color: #444;
+    margin: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 1s linear;
+    max-width: 20%;
+}
+
+.loginForm .smallButton span
+{
+    display: none;
+    margin-right: 5px;
+    font-weight: 500;
+}
+
+.loginForm .smallButton:hover span, .loginForm .smallButton:focus span
+{
+    display: inline-block;
+}
+
+.loginForm .smallButton:hover, .loginForm .smallButton:focus
+{
+    background-color: #444;
+    color: white;
+    max-width: 100%;
+}
+
+.loginForm > div
+{
+    box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 20%);
+    border: 1px solid var(--active-color);
+    border-radius: 4px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+.loginBackgroundCard 
+{
+    background-color: white;
+    flex: 1;
+    border: 1px solid;
+    opacity: 0.3;
+}
+
+.loginBackgroundCard .cardHeader
+{
+    background-color: rgb(248, 248, 248) !important;
+}
+
+.loginBackgroundCard:hover
+{
+    transform: scale(1) !important;
+}
+
+.loginBackgroundCard:hover .cardBody
+{
+    background-color: white !important;
+}
+
+.firebase-feedback
+{
+    display: block;
+}
+
+#PasswordVisibilityToggle
+{
+    width: 50px;
+}
+
+.row
+{
+    margin: 0px;
+}
+
+.row1, .row3, .row4
+{
+    height: 20%;
+}
+
+.row2
+{
+    height: 40%;
+}
+
+.col-2
+{
+    padding: 0px;
+}
+
+.flex-center-center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1050px) 
+{
+    .middleScreen
+    {
+        display: none !important;
+    }
+
+    .col-2
+    {
+        width: 25%;
+    }
+
+    .col-4
+    {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 576px) 
+{
+    .col-2
+    {
+        display: none !important;
+        width: 100%;
+    }
+
+    .col-4
+    {
+        width: 100%;
+    }
+}
+
+.btn-dark
+{
+    background-color: #444;
+    border-color: #444;
 }
