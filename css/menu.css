@@ -2,7 +2,7 @@
 
 :root {
     --header-height: 3rem;
-    --nav-width: 68px;
+    --nav-width: 48px;
     --first-color: #444444;
     --first-color-light: rgba(255, 255, 255, 0.5);
     --active-color: white;
@@ -84,7 +84,7 @@ a {
     width: var(--nav-width);
     height: 100vh;
     background-color: var(--first-color);
-    padding: .5rem 1rem 0 0;
+    padding: 0px;
     transition: .5s;
     z-index: var(--z-fixed)
 }
@@ -103,27 +103,30 @@ a {
     grid-template-columns: max-content max-content;
     align-items: center;
     column-gap: 1rem;
-    padding: .5rem 0 .5rem 1.5rem
+    padding: .5rem 0 .5rem 1rem
 }
 
-.nav_logo {
-    margin-bottom: 2rem
+.nav_logo
+{
+    padding: 0.6rem;
+    padding-top: 20px;
 }
 
 .nav_logo-icon {
-    height: 20px;
+    height: 22px;
 }
 
 .nav_logo-name {
     color: var(--active-color);
-    font-weight: 700
+    font-weight: 700;
+    font-size: large;
 }
 
 .nav_link {
     position: relative;
     color: var(--first-color-light);
     margin-bottom: 1.5rem;
-    transition: .3s
+    transition: .3s;
 }
 
 .nav_link:hover {
@@ -181,7 +184,7 @@ a {
 
     .l-navbar {
         left: 0;
-        padding: 1rem 1rem 0 0
+        padding: 0px;
     }
 
     .navShow {
@@ -204,4 +207,12 @@ a {
     {
         width: 200px;
     }
+}
+
+#ButtonDodajProjektModal
+{
+    padding-left: 12px;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
 }

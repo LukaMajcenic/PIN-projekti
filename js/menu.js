@@ -35,11 +35,20 @@ const showNavbar = (toggleId, navId, bodyId, headerId) =>
 			headerpd.classList.toggle('body-pd')
 			// change icon
 			if(!MenuExpanded)
-			{
+			{		
+				setTimeout(function(){
+					$('#ButtonDodajProjektModal').find('span').text('')
+					$('#ButtonDodajProjektModal').find('span').removeClass('ms-2');
+					$('#ButtonDodajProjektModal').removeClass('w-100');
+				}, 500);		
+				//$('#ButtonDodajProjektModal').find('span').text('');					
 				$('#' + toggleId).addClass('fas fa-angle-double-right');
 			}
 			else
 			{
+				$('#ButtonDodajProjektModal').find('span').text('  Dodaj novi projekt');
+				$('#ButtonDodajProjektModal').find('span').addClass('ms-2');
+				$('#ButtonDodajProjektModal').addClass('w-100');
 				$('#' + toggleId).addClass('fas fa-angle-double-left');
 			}
 		})

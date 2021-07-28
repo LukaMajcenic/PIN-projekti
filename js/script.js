@@ -26,9 +26,9 @@ oDbProjekti.on('value', function (oOdgovorPosluzitelja)
 	
 	$('.col-lg').empty();
 
-	$('#drustveni').append('<button class="btn ReadOnlyButtonTipovi"><b>DRUŠTVENI</b></button>');
-  	$('#infrastrukturni').append('<button class="btn ReadOnlyButtonTipovi"><b>INFRASTRUKTURNI</b></button>');
-  	$('#kulturni').append('<button class="btn ReadOnlyButtonTipovi"><b>KULTURNI</b></button>');
+	$('#drustveni').append('<div class="ColumnHeading">DRUŠTVENI</div>');
+  	$('#infrastrukturni').append('<div class="ColumnHeading">INFRASTRUKTURNI</div>');
+  	$('#kulturni').append('<div class="ColumnHeading">KULTURNI</div>');
 
 	var ListaSortirana = new Array();
     var ListaStatusa = ['U pripremi', 'U tijeku', 'Završen'];
@@ -37,7 +37,6 @@ oDbProjekti.on('value', function (oOdgovorPosluzitelja)
 	{
 		oOdgovorPosluzitelja.forEach(function (oProjektSnapshot)
 		{
-
 			if(oProjektSnapshot.val().status == ListaStatusa[i] && oProjektSnapshot.val().korisnik == firebase.auth().currentUser.uid)
 			{
 				ListaSortirana.push(oProjektSnapshot);
@@ -106,12 +105,14 @@ oDbProjekti.on('value', function (oOdgovorPosluzitelja)
   		}
 	}
 	
+	var Charts = [];
+	$('.hexagon').remove();
 	oDbAktivnosti.on('value', function (oOdgovorPosluzitelja)
-	{
+	{	
+		Charts.forEach((value) => {value.destroy()})
 		for (var i = 0; i < ListaSortirana.length; i++) 
 		{	
-			var NezavrseneAktivnosti = 0;
-			var ZavrseneAktivnosti = 0;
+			dataArray = [0, 0];
 			oOdgovorPosluzitelja.forEach(function (oAktivnostSnapshot)
 			{
 				if(oAktivnostSnapshot.val().projekt_id == ListaSortirana[i].key)
@@ -119,39 +120,60 @@ oDbProjekti.on('value', function (oOdgovorPosluzitelja)
 					switch(oAktivnostSnapshot.val().status)
 					{
 						case 'U tijeku':
-							NezavrseneAktivnosti++;
+							dataArray[0]++;
 							break;
 						case 'Završen':
-							ZavrseneAktivnosti++;
+							dataArray[1]++;
 							break;
 					}
 					
 				}	
-			})		
-			var postotak = (NezavrseneAktivnosti/(NezavrseneAktivnosti + ZavrseneAktivnosti)) * 100;
-			postotak = postotak.toFixed(0);
-			var HexagonData = '<div class="hexagon"><div class="progress2 mx-auto" data-value="' + postotak + '">' +
-			'<span class="progress-left">' +
-						  '<span class="progress-bar" style="border-color: #FFEE66;"></span>' +
-			'</span>' +
-			'<span class="progress-right">' +
-						  '<span class="progress-bar" style="border-color: #FFEE66;"></span>' +
-			'</span>' +
-			'<div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">' +
-            '<div class="font-weight-bold ProgressValue">' + (NezavrseneAktivnosti + ZavrseneAktivnosti) + '</div>' +
-          '</div>' +
-		  '</div></div>';
+			})
+			
+			const data = 
+			{
+				datasets: [{
+				  data: dataArray,
+				  backgroundColor: [RYG[1], RYG[2]],
+				  hoverOffset: 0
+				}]
+			};
 
-			if(NezavrseneAktivnosti + ZavrseneAktivnosti > 0)
+			const config = {
+				type: 'doughnut',
+				data: data,
+				options:
+				{					
+					plugins:
+					{
+						tooltip:
+						{	
+							enabled: false
+						},
+						legend:
+						{
+							display: false
+						}
+					},
+					borderWidth: 0,
+					cutout: '80%'
+				} 
+			};
+			
+			if(ListaSortirana[i].val().aktivnosti > 0)
 			{
-				$('#' + ListaSortirana[i].key).parent().find('.hexagon').remove();
-				$('#' + ListaSortirana[i].key).parent().append(HexagonData);
-				progressbar();
-			}
-			else
-			{
-				$('#' + ListaSortirana[i].key).parent().find('.hexagon').remove();
-			}
+				$('#' + ListaSortirana[i].key).parent().append(`<div class="hexagon">
+				<canvas id="chart${ListaSortirana[i].key}"></canvas>
+				<span>${ListaSortirana[i].val().aktivnosti}<span>
+				</div>`);
+
+				var myChart = new Chart(
+					document.getElementById('chart' + ListaSortirana[i].key),
+					config
+				);
+
+				Charts.push(myChart);
+			}	
 		}
 	});	
 
@@ -335,9 +357,6 @@ function ModalData(UnosProjektId, UnosAktivnostId, AccordionOtvoren)
 
 				var Rok = oAktivnostSnapshot.val().rok;
 				var RokProdeniDani = RazlikaDatuma(TrenutniDatum, DatumKreiranja);
-
-				console.log(Rok);
-				console.log(RokProdeniDani);
 
 				var postotak = (RokProdeniDani/Rok) * 100;
 				postotak = postotak.toFixed(2);

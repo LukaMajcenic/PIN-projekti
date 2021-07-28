@@ -19,6 +19,8 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body id="body-pd">
   
@@ -52,12 +54,13 @@
           <div> 
             <a href="#" class="nav_logo"> <img src="logo.svg" class="nav_logo-icon"> <span class="nav_logo-name">PIN-PROJEKTI</span> </a>
 
-            <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i> Small button</button>
+            <div class="p-1">
+            <button id="ButtonDodajProjektModal" class="btn btn-success my-3" data-bs-toggle="modal" data-bs-target="#DodajProjektModal">
+              <i class="fas fa-plus align-middle"></i><span></span>
+            </button>
+          </div>
 
               <div class="nav_list">
-                <a href="#" class="nav_link" id="ButtonDodajProjektModal" data-bs-toggle="modal" data-bs-target="#DodajProjektModal"> 
-                  <i class="fas fa-plus-circle"></i> <span class="nav_name">Dodaj projekt</span>
-                </a>
                 <a href="Home.html" class="nav_link"> 
                   <i class="fas fa-home"></i> <span class="nav_name">Početna</span>
                 </a> 
@@ -79,7 +82,7 @@
             <i class="fas fa-sign-out-alt"></i> <span class="nav_name">Odjava</span> 
           </a>
       </nav>
-  </div>
+  </div>  
 
 	<div class="container-fluid" id="MainPageContainer">
 		<div class="row pt-5">
