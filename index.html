@@ -18,29 +18,33 @@
 </head>
 <body class="h-100">
 
-    <div class="h-100 d-flex flex-column">
-      <div class="row flex-grow-1 row1"></div>
+  <div class="h-100 d-flex flex-column">
+    <div class="row flex-grow-1 row1"></div>
 
       <div class="row flex-grow-1 row2">
         <div class="col-2 d-flex flex-column middleScreen"></div>
         <div class="col-2 d-flex flex-column"></div>
         <div class="col-4 flex-center-center p-0">      
-          <form class="loginForm needs-validation" novalidate>
+          <form class="customForm needs-validation" novalidate>
             <div class="h-100 p-3">
               <div>
+                <div class="logo">
+                  <img src="logo.svg">
+                  <span>PIN PROJEKTI</span>
+                </div>               
                 <div class="input-group mb-3 has-validation">
-                  <input type="text" class="form-control" placeholder="Mail" id="InputMail" required>
+                  <input type="text" class="form-control" placeholder="Mail*" id="InputMail" required>
                   <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" placeholder="Server" id="InputServer" required>
+                  <input type="text" class="form-control" placeholder="Server*" id="InputServer" required>
                   <div class="invalid-feedback">
-                    Email je obavezan
+                    *Email je obavezan
                   </div>
                 </div>
                 <div class="input-group mb-3 has-validation">
-                  <input type="password" class="form-control" placeholder="Lozinka" id="InputLozinka" required>
+                  <input type="password" class="form-control" placeholder="Lozinka*" id="InputLozinka" required>
                   <button class="btn btn-dark" type="button" id="PasswordVisibilityToggle"><i class="far fa-eye"></i></button>
                   <div class="invalid-feedback">
-                    Lozinka je obavezna
+                    *Lozinka je obavezna
                   </div>
                 </div>          
                 <button type="submit" class="btn btn-dark w-100">
@@ -53,11 +57,22 @@
                 <button type="reset" class="btn smallButton">
                   <span>Očisti inpute</span><i class="fas fa-ban"></i>
                 </button>
-                <button class="btn smallButton">
-                  <span>Github repo</span><i class="fab fa-github"></i>
+                <button type="button" class="btn smallButton">
+                  <a href="https://github.com/LukaMajcenic/PIN-projekti/blob/master/README.md" class="text-color-unset">
+                    <span>O projektu</span><i class="far fa-question-circle"></i>
+                    <i class="fas fa-external-link-square-alt"></i>
+                  </a>
                 </button>
-                <button class="btn smallButton" id="ButtonRegistracija">
-                  <span>Registracija</span><i class="fas fa-user-plus"></i>
+                <button type="button" class="btn smallButton">
+                  <a href="https://github.com/LukaMajcenic/PIN-projekti" class="text-color-unset">
+                    <span>Github repo</span><i class="fab fa-github"></i>
+                    <i class="fas fa-external-link-square-alt"></i>
+                  </a>
+                </button>
+                <button type="button" class="btn smallButton">
+                  <a href="Registracija.html" class="text-color-unset">
+                    <span>Registracija</span><i class="fas fa-user-plus"></i>
+                  </a>
                 </button>
               </div>
             </div>
@@ -67,8 +82,7 @@
         <div class="col-2 d-flex flex-column middleScreen"></div>
       </div>
 
-      <div class="row flex-grow-1 row3"></div>
-      <div class="row flex-grow-1 row4"></div>
+    <div class="row flex-grow-1 row3"></div>
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>

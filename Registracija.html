@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
 <head>
 	<title>Registracija</title>
 	<meta charset="UTF-8">
@@ -7,6 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet'>
   <link rel="stylesheet" href="assets/plugins/bootstrap-5.0.0-beta1-dist/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/registracija.css">
+  <link rel="stylesheet" type="text/css" href="css/card.css">
   <script src="https://kit.fontawesome.com/2ed5dcf434.js" crossorigin="anonymous"></script>
 
   <!-- Bootstrap Date-Picker Plugin -->
@@ -14,13 +15,85 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
 </head>
-<body style="background-image: url('bg.png');">
-  
-  <div class="card-body" style="box-shadow: 0px -4px 8px rgba(0,0,0,0.3)">
-    <h5 class="card-text">Registracija</h5>
-    <hr class="solid">
+<body class="h-100">
 
-    <div class="input-group mb-3">
+  <div class="h-100 d-flex flex-column">
+    <div class="row flex-grow-1 row1"></div>
+
+      <div class="row flex-grow-1 row2">
+        <div class="col-2 d-flex flex-column middleScreen"></div>
+        <div class="col-2 d-flex flex-column"></div>
+        <div class="col-4 flex-center-center p-0">      
+          <form class="customForm needs-validation" novalidate>
+            <div class="h-100 p-3">
+              <div>
+                <div class="logo">
+                  <img src="logo.svg">
+                  <span>PIN PROJEKTI</span>
+                </div> 
+                <div class="input-group mb-3 has-validation">
+                  <input type="text" class="form-control" placeholder="Mail*" id="InputMail" required>
+                  <span class="input-group-text">@</span>
+                  <input type="text" class="form-control" placeholder="Server*" id="InputServer" required>
+                  <div class="invalid-feedback">
+                    *Email je obavezan
+                  </div>
+                </div>  
+                <div class="input-group mb-3 has-validation">
+                  <input type="password" class="form-control" placeholder="Lozinka*" id="InputLozinka" required>
+                  <button class="btn btn-dark" type="button" id="PasswordVisibilityToggle"><i class="far fa-eye"></i></button>
+                  <div class="invalid-feedback">
+                    *Lozinka je obavezna
+                  </div>
+                </div>
+                <div class="input-group mb-3 has-validation">
+                  <input type="text" class="form-control" placeholder="Korisničko ime*" id="InputKorisnickoIme" required>
+                  <div class="invalid-feedback">
+                    *Korisničko ime je obavezno
+                  </div>
+                </div>          
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Profilna slika (url)" id="InputProfilna">
+                </div>       
+                <button type="submit" class="btn btn-dark w-100">
+                  REGISTRACIJA
+                </button>
+                <div class="invalid-feedback firebase-feedback">
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="reset" class="btn smallButton">
+                  <span>Očisti inpute</span><i class="fas fa-ban"></i>
+                </button>
+                <button type="button" class="btn smallButton">
+                  <a href="https://github.com/LukaMajcenic/PIN-projekti/blob/master/README.md" class="text-color-unset">
+                    <span>O projektu</span><i class="far fa-question-circle"></i>
+                    <i class="fas fa-external-link-square-alt"></i>
+                  </a>
+                </button>
+                <button type="button" class="btn smallButton">
+                  <a href="https://github.com/LukaMajcenic/PIN-projekti" class="text-color-unset">
+                    <span>Github repo</span><i class="fab fa-github"></i>
+                    <i class="fas fa-external-link-square-alt"></i>
+                  </a>
+                </button>
+                <button type="button" class="btn smallButton">
+                  <a href="index.html" class="text-color-unset">
+                    <span>Prijava</span><i class="fas fa-sign-in-alt"></i>
+                  </a>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-2 d-flex flex-column"></div>
+        <div class="col-2 d-flex flex-column middleScreen"></div>
+      </div>
+
+    <div class="row flex-grow-1 row3"></div>
+  </div>
+
+    <!-- <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Mail" id="InputMail">
       <span class="input-group-text">@</span>
       <input type="text" class="form-control" placeholder="Server" id="InputServer">
@@ -40,9 +113,7 @@
 
     <button class="btn btn-success" id="ButtonRegistracija">
       Registriraj se
-    </button>
-    
-  </div>
+    </button> -->
 
 
   <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
@@ -53,6 +124,7 @@
 
   <script src="assets/plugins/bootstrap-5.0.0-beta1-dist/js/bootstrap.min.js"></script>
 
+  <script type="text/javascript" src="js/menu.js"></script>
   <script type="text/javascript" src="js/registracija.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>

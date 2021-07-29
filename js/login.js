@@ -13,13 +13,12 @@ for(let i = 0; i < 6; i++)
 	
 	$('.row1').append(`<div class="col-2 d-flex ${middleScreen}"></div>`);
 	$('.row3').append(`<div class="col-2 d-flex ${middleScreen}"></div>`);
-	$('.row4').append(`<div class="col-2 d-flex ${middleScreen}"></div>`);
 }
 $('.row1 .col-2').append(CardString);
 $('.row2 .col-2').append(CardString);
 $('.row2 .col-2').append(CardString);
+$('.row2 .col-2').append(CardString);
 $('.row3 .col-2').append(CardString);
-$('.row4 .col-2').append(CardString);
 
 $( ".loginBackgroundCard").each(function() 
 {
@@ -39,8 +38,7 @@ $( ".loginBackgroundCard").each(function()
 let PasswordVisible = false;
 $('#PasswordVisibilityToggle').click(function()
 {
-	PasswordVisible = !PasswordVisible;
-	
+	PasswordVisible = !PasswordVisible;	
 	if(PasswordVisible)
 	{
 		$('#InputLozinka').get(0).type = 'text';
@@ -79,62 +77,24 @@ function Submit()
 
 			if(errorCode == 'auth/wrong-password')
 			{
-				$('.firebase-feedback').html('Neispravna lozinka');
+				$('.firebase-feedback').html('Neispravna lozinka!');
 			}
 			if(errorCode == 'auth/invalid-email')
 			{
-				$('.firebase-feedback').html(`Neispravna e-mail adresa`)
+				$('.firebase-feedback').html(`Neispravna e-mail adresa!`)
 			} 
 			if(errorCode == 'auth/user-disabled')
 			{
-				$('.firebase-feedback').html(`Korisnik <b>${$('#InputMail').val()}@${$('#InputServer').val()}</b> onemogućen`)
+				$('.firebase-feedback').html(`Korisnik <b>${$('#InputMail').val()}@${$('#InputServer').val()}</b> onemogućen!`)
 			}
 			if(errorCode == 'auth/user-not-found')
 			{
-				$('.firebase-feedback').html(`Korisnik sa e-mail adresom <b>${$('#InputMail').val()}@${$('#InputServer').val()}</b> ne postoji`)
+				$('.firebase-feedback').html(`Korisnik sa e-mail adresom <b>${$('#InputMail').val()}@${$('#InputServer').val()}</b> ne postoji!`)
 			} 			
 		});
 }
 
-$('#ButtonPrijava').click(function()
-{
-	var PoljaIspunjena = true;
-
-	if($('#InputMail').val() == '')
-	{
-		$('#InputMail').css('border-color', 'red');
-		$('#InputMail').attr('placeholder', 'Unesite mail!');
-		PoljaIspunjena = false;
-	}
-
-	if($('#InputServer').val() == '')
-	{
-		$('#InputServer').css('border-color', 'red');
-		$('#InputServer').attr('placeholder', 'Unesite server!');
-		PoljaIspunjena = false;
-	}
-
-	if($('#InputLozinka').val() == '')
-	{
-		$('#InputLozinka').css('border-color', 'red');
-		$('#InputLozinka').attr('placeholder', 'Unesite mail!');
-		PoljaIspunjena = false;
-	}
-
-	if(PoljaIspunjena == true)
-	{
-
-		
-	}
-})
-
-$('#ButtonRegistracija').click(function()
-{
-	window.open('Registracija.html',"_self")
-})
-
 'use strict'
-
 // Fetch all the forms we want to apply custom Bootstrap validation styles to
 var forms = document.querySelectorAll('.needs-validation')
 
